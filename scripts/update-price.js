@@ -26,7 +26,15 @@ async function update() {
     };
   }
 
-  result.last_updated = new Date().toISOString();
+  result.last_updated = new Date().toLocaleString('zh-CN', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
 
   fs.writeFileSync("public/eth-btc-price.json", JSON.stringify(result, null, 2));
   console.log("✅ 实时价格已更新");
