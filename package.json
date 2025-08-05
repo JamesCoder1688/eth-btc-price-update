@@ -1,0 +1,12 @@
+{
+  "name": "eth-btc-price-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "update:price": "node scripts/update-price.js",
+    "update:history": "node scripts/update-history.js"
+  }
+}
