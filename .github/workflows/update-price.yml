@@ -29,5 +29,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/eth-btc-price.json
           git commit -m "更新 ETH 和 BTC 数据 [CI 自动]" || echo "没有改动可提交"
-          git pull --rebase
-          git push --force
+          git pull --no-rebase
+          git push
