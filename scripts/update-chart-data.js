@@ -21,11 +21,57 @@ async function fetchChartData(coinId, period) {
     throw new Error(`Unsupported period: ${period}`);
   }
 
-  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${config.days}&interval=${config.interval}`;
-  const res = await fetch(url);
-  const data = await res.json();
+  console.log(`🔄 正在获取 ${coinId} ${period} 的图表数据...`);
   
-  return data;
+  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${config.days}&interval=${config.interval}`;
+  
+  try {
+    const res = await fetchWithRetry(url, 3);
+    const data = await res.json();
+    
+    // 验证数据完整性
+    if (!data.prices || !Array.isArray(data.prices) || data.prices.length === 0) {
+      throw new Error(`Invalid chart data received for ${coinId} ${period}`);
+    }
+    
+    console.log(`✅ ${coinId} ${period} 图表数据获取成功，包含 ${data.prices.length} 个数据点`);
+    return data;
+  } catch (error) {
+    console.error(`❌ 获取 ${coinId} ${period} 图表数据失败:`, error.message);
+    throw error;
+  }
+}
+
+async function fetchWithRetry(url, maxRetries = 3, delay = 2000) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      console.log(`🌐 API请求 (尝试 ${i + 1}/${maxRetries}): ${url}`);
+      
+      const response = await fetch(url, {
+        timeout: 15000, // 15秒超时
+        headers: {
+          'User-Agent': 'ETH-BTC-Chart-Tracker/1.0',
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      return response;
+    } catch (error) {
+      console.log(`⚠️  第 ${i + 1} 次请求失败: ${error.message}`);
+      
+      if (i === maxRetries - 1) {
+        throw error;
+      }
+      
+      console.log(`⏳ ${delay/1000} 秒后重试...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+      delay *= 1.5; // 指数退避
+    }
+  }
 }
 
 function processChartData(rawData, period, coinSymbol) {
@@ -144,6 +190,8 @@ async function generateChartDataAPI() {
   
   for (const query of commonQueries) {
     try {
+      console.log(`🚀 开始处理 ${query.coin.toUpperCase()} ${query.period} 图表数据...`);
+      
       const rawData = await fetchChartData(
         query.coin === 'eth' ? 'ethereum' : 'bitcoin', 
         query.period
@@ -153,13 +201,24 @@ async function generateChartDataAPI() {
       const key = `${query.coin}_${query.period}`;
       chartDataMap[key] = chartData;
       
-      console.log(`✅ 已生成 ${query.coin.toUpperCase()} ${query.period} 图表数据`);
+      console.log(`✅ 已生成 ${query.coin.toUpperCase()} ${query.period} 图表数据 (${chartData.data.length} 个数据点)`);
       
       // 添加延迟避免API限制
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
     } catch (error) {
       console.error(`❌ 生成 ${query.coin} ${query.period} 数据失败:`, error.message);
+      // 继续处理其他数据，不要因为一个失败就停止
+      continue;
     }
+  }
+  
+  // 检查是否有成功生成的数据
+  const successCount = Object.keys(chartDataMap).length;
+  console.log(`📊 成功生成 ${successCount}/10 个图表数据集`);
+  
+  if (successCount === 0) {
+    console.error(`❌ 所有图表数据生成失败，请检查网络连接和API状态`);
+    throw new Error('No chart data generated successfully');
   }
   
   // 保存预生成的图表数据
