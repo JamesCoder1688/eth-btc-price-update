@@ -7,6 +7,12 @@
   },
   "scripts": {
     "update:price": "node scripts/update-price.js",
-    "update:history": "node scripts/update-history.js"
+    "update:history": "node scripts/update-history.js",
+    "update:chart": "node scripts/update-chart-data.js generate",
+    "update:chart-1h": "node scripts/update-chart-data.js 1h",
+    "update:chart-24h": "node scripts/update-chart-data.js 24h",
+    "update:chart-7d": "node scripts/update-chart-data.js 7d",
+    "update:chart-30d": "node scripts/update-chart-data.js 30d",
+    "update:chart-1y": "node scripts/update-chart-data.js 1y"
   }
 }
