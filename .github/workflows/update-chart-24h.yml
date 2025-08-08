@@ -5,6 +5,11 @@ on:
     - cron: "*/15 * * * *" # 每 15 分钟更新24小时图表数据
   workflow_dispatch: # 手动运行也可以
 
+# 防止并发执行，避免推送冲突
+concurrency:
+  group: chart-data-update
+  cancel-in-progress: false
+
 jobs:
   update-chart-24h:
     runs-on: ubuntu-latest
@@ -32,8 +37,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           # 添加文件到暂存区
-          git add public/chart-data-cache.json
-          git add public/chart-data.json
+          git add public/chart-data-cache.json || true
+          git add public/chart-data.json || true
           
           # 检查是否有改动
           if git diff --staged --quiet; then
@@ -41,21 +46,45 @@ jobs:
             exit 0
           fi
           
-          # 尝试提交
-          git commit -m "更新 24小时图表数据 [CI 自动]"
-          
-          # 重试推送机制（最多3次）
-          for i in {1..3}; do
-            echo "尝试推送 (第 $i 次)"
+          # 增强的冲突处理和重试机制（最多5次）
+          for i in {1..5}; do
+            echo "=== 尝试推送 (第 $i 次) ==="
+            
+            # 先拉取最新更改
+            echo "🔄 同步远程更改..."
+            git fetch origin main
+            
+            # 尝试rebase
+            if git rebase origin/main; then
+              echo "✅ Rebase 成功"
+            else
+              echo "❌ Rebase 冲突，尝试解决..."
+              git rebase --abort
+              git reset --hard origin/main
+              
+              # 重新添加我们的更改
+              git add public/chart-data-cache.json || true
+              git add public/chart-data.json || true
+              
+              # 如果没有更改就退出
+              if git diff --staged --quiet; then
+                echo "📋 与远程版本一致，无需推送"
+                exit 0
+              fi
+            fi
+            
+            # 重新提交
+            git commit -m "更新 24小时图表数据 [CI 自动] (重试 $i)" || true
+            
+            # 尝试推送
             if git push origin main; then
-              echo "推送成功"
+              echo "🎉 推送成功！"
               exit 0
             else
-              echo "推送失败，尝试重新同步"
-              git pull --rebase origin main
-              sleep 10
+              echo "⚠️  推送失败，等待 $((i * 15)) 秒后重试..."
+              sleep $((i * 15))
             fi
           done
           
-          echo "推送失败，已重试3次"
-          exit 1
+          echo "❌ 推送失败，已重试5次，跳过本次更新"
+          exit 0

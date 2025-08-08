@@ -1,0 +1,59 @@
+name: Initialize Chart Data (One Time)
+
+on:
+  workflow_dispatch: # 只能手动触发
+
+jobs:
+  init-all-chart-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate all chart data
+        run: |
+          echo "🚀 开始生成所有图表数据..."
+          npm run update:chart
+          echo "✅ 所有图表数据生成完成"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # 添加文件到暂存区
+          git add public/chart-data-cache.json
+          git add public/chart-data.json
+          
+          # 检查是否有改动
+          if git diff --staged --quiet; then
+            echo "没有改动可提交"
+            exit 0
+          fi
+          
+          # 尝试提交
+          git commit -m "初始化所有图表数据 [CI 自动]"
+          
+          # 重试推送机制（最多3次）
+          for i in {1..3}; do
+            echo "尝试推送 (第 $i 次)"
+            if git push origin main; then
+              echo "推送成功"
+              exit 0
+            else
+              echo "推送失败，尝试重新同步"
+              git pull --rebase origin main
+              sleep 5
+            fi
+          done
+          
+          echo "推送失败，已重试3次"
+          exit 1
