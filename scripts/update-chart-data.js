@@ -6,25 +6,25 @@ const coins = [
   { id: "bitcoin", symbol: "btc" }
 ];
 
-// 时间段配置
+// 时间段配置 - 使用免费market chart API
 const periodConfigs = {
-  '1h': { days: 1, interval: 'hourly', points: 12, step: 5 }, // 5分钟间隔，取12个点
-  '24h': { days: 1, interval: 'hourly', points: 24, step: 1 }, // 1小时间隔，24个点
-  '7d': { days: 7, interval: 'hourly', points: 42, step: 4 }, // 4小时间隔，42个点
-  '30d': { days: 30, interval: 'daily', points: 30, step: 1 }, // 1天间隔，30个点
-  '1y': { days: 365, interval: 'weekly', points: 52, step: 7 } // 7天间隔，52个点
+  '1h': { days: 1, points: 12 }, // 1小时走势：从24小时数据中取最近12个点
+  '24h': { days: 1, points: 24 }, // 24小时走势：每小时一个点
+  '7d': { days: 7, points: 42 }, // 7天走势：每4小时一个点
+  '30d': { days: 30, points: 30 }, // 30天走势：每天一个点
+  '1y': { days: 365, points: 52 } // 1年走势：每周一个点
 };
 
-async function fetchChartData(coinId, period) {
+async function fetchMarketChartData(coinId, period) {
   const config = periodConfigs[period];
   if (!config) {
     throw new Error(`Unsupported period: ${period}`);
   }
 
-  console.log(`🔄 正在获取 ${coinId} ${period} 的图表数据...`);
+  console.log(`🔄 正在获取 ${coinId} ${period} 的市场图表数据...`);
   
-  // 使用不同的API端点，避免认证问题
-  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${config.days}${config.interval !== 'daily' ? '&interval=' + config.interval : ''}`;
+  // 使用免费的CoinGecko Market Chart API
+  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${config.days}`;
   
   try {
     const res = await fetchWithRetry(url, 5);
@@ -32,13 +32,13 @@ async function fetchChartData(coinId, period) {
     
     // 验证数据完整性
     if (!data.prices || !Array.isArray(data.prices) || data.prices.length === 0) {
-      throw new Error(`Invalid chart data received for ${coinId} ${period}`);
+      throw new Error(`Invalid market chart data received for ${coinId} ${period}`);
     }
     
-    console.log(`✅ ${coinId} ${period} 图表数据获取成功，包含 ${data.prices.length} 个数据点`);
+    console.log(`✅ ${coinId} ${period} 市场图表数据获取成功，包含 ${data.prices.length} 个价格数据点`);
     return data;
   } catch (error) {
-    console.error(`❌ 获取 ${coinId} ${period} 图表数据失败:`, error.message);
+    console.error(`❌ 获取 ${coinId} ${period} 市场图表数据失败:`, error.message);
     throw error;
   }
 }
@@ -91,26 +91,21 @@ async function fetchWithRetry(url, maxRetries = 5, delay = 5000) {
   }
 }
 
-function processChartData(rawData, period, coinSymbol) {
+function processMarketChartData(marketData, period, coinSymbol) {
   const config = periodConfigs[period];
-  const { prices, total_volumes } = rawData;
+  const { prices } = marketData;
   
-  // 根据配置采样数据点
-  const sampledData = [];
-  const totalPoints = prices.length;
-  const stepSize = Math.max(1, Math.floor(totalPoints / config.points));
+  // 获取CNY汇率（使用当前汇率估算）
+  const estimatedCnyRate = 7.18; // 临时汇率，实际应该动态获取
   
-  for (let i = 0; i < totalPoints; i += stepSize) {
-    if (sampledData.length >= config.points) break;
-    
-    const [timestamp, price] = prices[i];
-    const volume = total_volumes[i] ? total_volumes[i][1] : 0;
-    
-    // 获取CNY价格（使用当前汇率估算，实际项目中应该获取历史汇率）
-    const estimatedCnyRate = 7.18; // 临时汇率，实际应该动态获取
-    
-    sampledData.push({
-      timestamp: Math.floor(timestamp / 1000), // 转换为秒级时间戳
+  // 处理不同时间段的数据采样
+  let sampledData = [];
+  
+  if (period === '1h') {
+    // 1小时走势：从24小时数据中取最近12个点（每5分钟间隔）
+    const recentPrices = prices.slice(-12);
+    sampledData = recentPrices.map(([timestamp, price]) => ({
+      timestamp: Math.floor(timestamp / 1000),
       datetime: new Date(timestamp).toLocaleString('zh-CN', {
         timeZone: 'Asia/Shanghai',
         year: 'numeric',
@@ -120,24 +115,45 @@ function processChartData(rawData, period, coinSymbol) {
         minute: '2-digit',
         second: '2-digit'
       }),
-      price: {
-        usd: Math.round(price * 100) / 100,
-        cny: Math.round(price * estimatedCnyRate * 100) / 100
-      },
-      volume: Math.round(volume)
-    });
+      price_usd: Math.round(price * 100) / 100,
+      price_cny: Math.round(price * estimatedCnyRate * 100) / 100
+    }));
+  } else {
+    // 其他时间段：均匀采样
+    const totalPoints = prices.length;
+    const stepSize = Math.max(1, Math.floor(totalPoints / config.points));
+    
+    for (let i = 0; i < totalPoints; i += stepSize) {
+      if (sampledData.length >= config.points) break;
+      
+      const [timestamp, price] = prices[i];
+      sampledData.push({
+        timestamp: Math.floor(timestamp / 1000),
+        datetime: new Date(timestamp).toLocaleString('zh-CN', {
+          timeZone: 'Asia/Shanghai',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        }),
+        price_usd: Math.round(price * 100) / 100,
+        price_cny: Math.round(price * estimatedCnyRate * 100) / 100
+      });
+    }
   }
   
   // 计算汇总统计
-  const priceValues = sampledData.map(d => d.price.usd);
+  const priceValues = sampledData.map(d => d.price_usd);
   const summary = {
     start_price: {
-      usd: sampledData[0]?.price.usd || 0,
-      cny: sampledData[0]?.price.cny || 0
+      usd: sampledData[0]?.price_usd || 0,
+      cny: sampledData[0]?.price_cny || 0
     },
     end_price: {
-      usd: sampledData[sampledData.length - 1]?.price.usd || 0,
-      cny: sampledData[sampledData.length - 1]?.price.cny || 0
+      usd: sampledData[sampledData.length - 1]?.price_usd || 0,
+      cny: sampledData[sampledData.length - 1]?.price_cny || 0
     },
     high_price: {
       usd: Math.max(...priceValues),
@@ -147,8 +163,7 @@ function processChartData(rawData, period, coinSymbol) {
       usd: Math.min(...priceValues),
       cny: Math.round(Math.min(...priceValues) * estimatedCnyRate * 100) / 100
     },
-    change_percent: 0,
-    total_volume: sampledData.reduce((sum, d) => sum + d.volume, 0)
+    change_percent: 0
   };
   
   // 计算变化百分比
@@ -162,6 +177,7 @@ function processChartData(rawData, period, coinSymbol) {
     coin: coinSymbol,
     period,
     interval: getIntervalLabel(period),
+    data_type: "price",
     data: sampledData,
     summary,
     last_updated: new Date().toLocaleString('zh-CN', {
@@ -185,6 +201,44 @@ function getIntervalLabel(period) {
     '1y': '7d'
   };
   return labels[period] || '1h';
+}
+
+// 生成单独的图表文件
+async function generateIndividualChartFiles() {
+  console.log(`🚀 开始生成独立的图表数据文件...`);
+  
+  const periods = ['1h', '24h', '7d', '30d', '1y'];
+  const coins = [
+    { id: 'ethereum', symbol: 'eth' },
+    { id: 'bitcoin', symbol: 'btc' }
+  ];
+  
+  for (const coin of coins) {
+    for (const period of periods) {
+      try {
+        console.log(`🔄 正在处理 ${coin.symbol.toUpperCase()} ${period} 数据...`);
+        
+        const marketData = await fetchMarketChartData(coin.id, period);
+        const chartData = processMarketChartData(marketData, period, coin.symbol);
+        
+        // 保存为独立文件
+        const filename = `public/${coin.symbol}-chart-${period}.json`;
+        fs.writeFileSync(filename, JSON.stringify(chartData, null, 2));
+        
+        console.log(`✅ ${coin.symbol.toUpperCase()} ${period} 数据已保存到 ${filename}`);
+        
+        // 添加延迟避免API限制
+        console.log(`⏳ 等待5秒后处理下一个数据...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        
+      } catch (error) {
+        console.error(`❌ 生成 ${coin.symbol} ${period} 数据失败:`, error.message);
+        continue;
+      }
+    }
+  }
+  
+  console.log(`🎉 独立图表数据文件生成完成！`);
 }
 
 // 动态图表数据API实现
@@ -211,12 +265,12 @@ async function generateChartDataAPI() {
     try {
       console.log(`🚀 开始处理 ${query.coin.toUpperCase()} ${query.period} 图表数据...`);
       
-      const rawData = await fetchChartData(
+      const marketData = await fetchMarketChartData(
         query.coin === 'eth' ? 'ethereum' : 'bitcoin', 
         query.period
       );
       
-      const chartData = processChartData(rawData, query.period, query.coin);
+      const chartData = processMarketChartData(marketData, query.period, query.coin);
       const key = `${query.coin}_${query.period}`;
       chartDataMap[key] = chartData;
       
@@ -265,8 +319,8 @@ async function updateSpecificPeriod(period) {
   
   for (const coin of coins) {
     try {
-      const rawData = await fetchChartData(coin.id, period);
-      const chartData = processChartData(rawData, period, coin.symbol);
+      const marketData = await fetchMarketChartData(coin.id, period);
+      const chartData = processMarketChartData(marketData, period, coin.symbol);
       
       // 更新缓存文件中的对应数据
       let existingData = {};
@@ -297,14 +351,17 @@ const args = process.argv.slice(2);
 const command = args[0];
 
 if (command === 'generate') {
-  generateChartDataAPI();
+  generateIndividualChartFiles();
+} else if (command === 'legacy') {
+  generateChartDataAPI(); // 保留旧的缓存方式
 } else if (command && periodConfigs[command]) {
   updateSpecificPeriod(command);
 } else if (command) {
   console.error(`❌ 不支持的命令: ${command}`);
   console.log("支持的命令:");
-  console.log("  generate - 生成所有图表数据");
+  console.log("  generate - 生成独立的图表数据文件");
+  console.log("  legacy - 生成缓存的图表数据");
   console.log("  1h, 24h, 7d, 30d, 1y - 更新特定时间段的数据");
 } else {
-  generateChartDataAPI();
+  generateIndividualChartFiles();
 }
