@@ -42,18 +42,27 @@ async function fetchChartData(coinId, period) {
   }
 }
 
-async function fetchWithRetry(url, maxRetries = 3, delay = 2000) {
+async function fetchWithRetry(url, maxRetries = 5, delay = 5000) {
   for (let i = 0; i < maxRetries; i++) {
     try {
       console.log(`🌐 API请求 (尝试 ${i + 1}/${maxRetries}): ${url}`);
       
       const response = await fetch(url, {
-        timeout: 15000, // 15秒超时
+        timeout: 20000, // 20秒超时
         headers: {
-          'User-Agent': 'ETH-BTC-Chart-Tracker/1.0',
-          'Accept': 'application/json'
+          'User-Agent': 'Mozilla/5.0 (compatible; ETH-BTC-Chart-Tracker/1.0)',
+          'Accept': 'application/json',
+          'Accept-Encoding': 'gzip, deflate'
         }
       });
+      
+      if (response.status === 429) {
+        // API限制，等待更长时间
+        const waitTime = Math.min(60000, delay * Math.pow(2, i)); // 最多等60秒
+        console.log(`🛑 API限制，等待 ${waitTime/1000} 秒后重试...`);
+        await new Promise(resolve => setTimeout(resolve, waitTime));
+        continue;
+      }
       
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -67,9 +76,9 @@ async function fetchWithRetry(url, maxRetries = 3, delay = 2000) {
         throw error;
       }
       
-      console.log(`⏳ ${delay/1000} 秒后重试...`);
-      await new Promise(resolve => setTimeout(resolve, delay));
-      delay *= 1.5; // 指数退避
+      const waitTime = Math.min(30000, delay * Math.pow(1.5, i));
+      console.log(`⏳ ${waitTime/1000} 秒后重试...`);
+      await new Promise(resolve => setTimeout(resolve, waitTime));
     }
   }
 }
@@ -172,18 +181,20 @@ function getIntervalLabel(period) {
 
 // 动态图表数据API实现
 async function generateChartDataAPI() {
-  // 由于这是静态文件托管，我们需要预生成常用的图表数据组合
+  console.log(`🚀 开始生成图表数据，使用保守的API调用策略...`);
+  
+  // 分批处理，降低API压力
   const commonQueries = [
-    { coin: 'eth', period: '1h' },
-    { coin: 'eth', period: '24h' },
-    { coin: 'eth', period: '7d' },
-    { coin: 'eth', period: '30d' },
-    { coin: 'eth', period: '1y' },
-    { coin: 'btc', period: '1h' },
+    { coin: 'eth', period: '24h' },  // 先生成最重要的数据
     { coin: 'btc', period: '24h' },
+    { coin: 'eth', period: '7d' },
     { coin: 'btc', period: '7d' },
-    { coin: 'btc', period: '30d' },
-    { coin: 'btc', period: '1y' }
+    { coin: 'eth', period: '1y' },
+    { coin: 'btc', period: '1y' },
+    { coin: 'eth', period: '1h' },   // 1小时数据放后面
+    { coin: 'btc', period: '1h' },
+    { coin: 'eth', period: '30d' },  // 30天数据最后
+    { coin: 'btc', period: '30d' }
   ];
   
   const chartDataMap = {};
@@ -203,8 +214,9 @@ async function generateChartDataAPI() {
       
       console.log(`✅ 已生成 ${query.coin.toUpperCase()} ${query.period} 图表数据 (${chartData.data.length} 个数据点)`);
       
-      // 添加延迟避免API限制
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // 添加更长延迟避免API限制
+      console.log(`⏳ 等待10秒后处理下一个数据集...`);
+      await new Promise(resolve => setTimeout(resolve, 10000));
     } catch (error) {
       console.error(`❌ 生成 ${query.coin} ${query.period} 数据失败:`, error.message);
       // 继续处理其他数据，不要因为一个失败就停止
