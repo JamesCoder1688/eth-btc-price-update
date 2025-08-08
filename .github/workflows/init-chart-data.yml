@@ -29,9 +29,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # 添加文件到暂存区
-          git add public/chart-data-cache.json
-          git add public/chart-data.json
+          # 添加文件到暂存区 - 新的独立图表文件
+          git add public/eth-chart-*.json || true
+          git add public/btc-chart-*.json || true
           
           # 检查是否有改动
           if git diff --staged --quiet; then

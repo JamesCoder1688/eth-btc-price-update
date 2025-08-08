@@ -36,9 +36,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # 添加文件到暂存区
-          git add public/chart-data-cache.json || true
-          git add public/chart-data.json || true
+          # 添加文件到暂存区 - 新的独立图表文件
+          git add public/eth-chart-24h.json || true
+          git add public/btc-chart-24h.json || true
           
           # 检查是否有改动
           if git diff --staged --quiet; then
@@ -63,8 +63,8 @@ jobs:
               git reset --hard origin/main
               
               # 重新添加我们的更改
-              git add public/chart-data-cache.json || true
-              git add public/chart-data.json || true
+              git add public/eth-chart-24h.json || true
+              git add public/btc-chart-24h.json || true
               
               # 如果没有更改就退出
               if git diff --staged --quiet; then
