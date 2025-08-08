@@ -23,10 +23,10 @@ async function fetchChartData(coinId, period) {
 
   console.log(`🔄 正在获取 ${coinId} ${period} 的图表数据...`);
   
-  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${config.days}&interval=${config.interval}`;
+  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${config.days}${config.interval !== 'daily' ? '&interval=' + config.interval : ''}`;
   
   try {
-    const res = await fetchWithRetry(url, 3);
+    const res = await fetchWithRetry(url, 5);
     const data = await res.json();
     
     // 验证数据完整性
@@ -63,7 +63,12 @@ async function fetchWithRetry(url, maxRetries = 5, delay = 5000) {
         await new Promise(resolve => setTimeout(resolve, waitTime));
         continue;
       }
-      
+      if (response.status === 401) {
+    // 认证错误，尝试不同的请求方式
+    console.log(`🔐 认证问题，等待后重试...`);
+    await new Promise(resolve => setTimeout(resolve, delay * 2));
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
