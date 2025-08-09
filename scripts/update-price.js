@@ -18,6 +18,9 @@ async function fetchPriceData(coinId) {
     
     console.log(`✅ ${coinId} 基础价格数据获取成功`);
     
+    // 在获取历史数据前增加短暂延迟，避免频繁调用
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     // 获取历史数据以计算多时间段变化
     console.log(`🔄 正在获取 ${coinId} 的历史数据...`);
     const historyUrl = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=365&interval=daily`;
@@ -49,7 +52,7 @@ async function fetchPriceData(coinId) {
   }
 }
 
-async function fetchWithRetry(url, maxRetries = 3, delay = 2000) {
+async function fetchWithRetry(url, maxRetries = 5, delay = 3000) {
   for (let i = 0; i < maxRetries; i++) {
     try {
       const response = await fetch(url, {
@@ -60,6 +63,12 @@ async function fetchWithRetry(url, maxRetries = 3, delay = 2000) {
       });
       
       if (!response.ok) {
+        // 针对429错误增加更长延迟
+        if (response.status === 429) {
+          const retryAfter = response.headers.get('Retry-After') || '60';
+          console.log(`⚠️  遇到频率限制，等待 ${retryAfter} 秒...`);
+          await new Promise(resolve => setTimeout(resolve, parseInt(retryAfter) * 1000));
+        }
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
@@ -71,9 +80,11 @@ async function fetchWithRetry(url, maxRetries = 3, delay = 2000) {
         throw error;
       }
       
-      console.log(`⏳ ${delay/1000} 秒后重试...`);
-      await new Promise(resolve => setTimeout(resolve, delay));
-      delay *= 1.5; // 指数退避
+      // 对429错误使用更长的退避时间
+      const actualDelay = error.message.includes('429') ? delay * 2 : delay;
+      console.log(`⏳ ${actualDelay/1000} 秒后重试...`);
+      await new Promise(resolve => setTimeout(resolve, actualDelay));
+      delay *= 2; // 指数退避，加大倍数
     }
   }
 }
@@ -137,10 +148,10 @@ async function update() {
       continue;
     }
     
-    // 在每个币种之间添加延迟，避免API限制
+    // 在每个币种之间添加延迟，避免API限制（每个币种需要2次API调用）
     if (coin.symbol !== 'doge') { // 最后一个币种不需要延迟
-      console.log('⏳ 等待3秒后处理下一个币种...');
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      console.log('⏳ 等待5秒后处理下一个币种...');
+      await new Promise(resolve => setTimeout(resolve, 5000));
     }
   }
   
