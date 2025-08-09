@@ -101,32 +101,47 @@ function calculatePriceChange(prices, currentPrice, currentTime, daysAgo) {
 
 async function update() {
   const result = {};
+  let successCount = 0;
 
   for (const coin of coins) {
-    const price = await fetchPriceData(coin.id);
-    
-    // 构建增强版价格数据结构
-    result[coin.symbol] = {
-      current_price: {
-        usd: price.usd,
-        cny: price.cny
-      },
-      changes: {
-        '1h': parseFloat((price.price_changes['1h'] || 0).toFixed(2)),
-        '24h': parseFloat((price.price_changes['24h'] || 0).toFixed(2)),
-        '7d': parseFloat((price.price_changes['7d'] || 0).toFixed(2)),
-        '30d': parseFloat((price.price_changes['30d'] || 0).toFixed(2)),
-        '1y': parseFloat((price.price_changes['1y'] || 0).toFixed(2))
-      },
-      volume_24h: {
-        usd: price.usd_24h_vol || 0,
-        cny: Math.round((price.usd_24h_vol || 0) * (price.cny / price.usd))
-      },
-      market_cap: {
-        usd: price.usd_market_cap || 0,
-        cny: Math.round((price.usd_market_cap || 0) * (price.cny / price.usd))
-      }
-    };
+    try {
+      const price = await fetchPriceData(coin.id);
+      
+      // 构建增强版价格数据结构
+      result[coin.symbol] = {
+        current_price: {
+          usd: price.usd,
+          cny: price.cny
+        },
+        changes: {
+          '1h': parseFloat((price.price_changes['1h'] || 0).toFixed(2)),
+          '24h': parseFloat((price.price_changes['24h'] || 0).toFixed(2)),
+          '7d': parseFloat((price.price_changes['7d'] || 0).toFixed(2)),
+          '30d': parseFloat((price.price_changes['30d'] || 0).toFixed(2)),
+          '1y': parseFloat((price.price_changes['1y'] || 0).toFixed(2))
+        },
+        volume_24h: {
+          usd: price.usd_24h_vol || 0,
+          cny: Math.round((price.usd_24h_vol || 0) * (price.cny / price.usd))
+        },
+        market_cap: {
+          usd: price.usd_market_cap || 0,
+          cny: Math.round((price.usd_market_cap || 0) * (price.cny / price.usd))
+        }
+      };
+      successCount++;
+      console.log(`✅ ${coin.symbol.toUpperCase()} 数据处理成功`);
+    } catch (error) {
+      console.error(`❌ ${coin.symbol.toUpperCase()} 数据获取失败，跳过: ${error.message}`);
+      // 继续处理下一个币种
+      continue;
+    }
+  }
+  
+  // 检查是否有成功的数据
+  if (successCount === 0) {
+    console.error('❌ 所有币种数据获取失败，不生成文件');
+    return;
   }
 
   result.last_updated = new Date().toLocaleString('zh-CN', {
@@ -140,10 +155,14 @@ async function update() {
   });
 
   fs.writeFileSync("public/current-prices.json", JSON.stringify(result, null, 2));
-  console.log("✅ 实时价格数据已更新 (ETH+BTC+DOGE)");
-  console.log(`📊 ETH: $${result.eth.current_price.usd} (24h: ${result.eth.changes['24h']}%)`);
-  console.log(`📊 BTC: $${result.btc.current_price.usd} (24h: ${result.btc.changes['24h']}%)`);
-  console.log(`📊 DOGE: $${result.doge.current_price.usd} (24h: ${result.doge.changes['24h']}%)`);
+  console.log(`✅ 实时价格数据已更新 (${successCount}个币种)`);
+  
+  // 显示成功获取的币种数据
+  if (result.eth) console.log(`📊 ETH: $${result.eth.current_price.usd} (24h: ${result.eth.changes['24h']}%)`);
+  if (result.btc) console.log(`📊 BTC: $${result.btc.current_price.usd} (24h: ${result.btc.changes['24h']}%)`);
+  if (result.doge) console.log(`📊 DOGE: $${result.doge.current_price.usd} (24h: ${result.doge.changes['24h']}%)`);
+  
+  console.log(`📋 数据文件已保存到: public/current-prices.json`);
 }
 
 update();
