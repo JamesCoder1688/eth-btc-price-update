@@ -136,11 +136,12 @@ async function update() {
       // 继续处理下一个币种
       continue;
     }
+    
     // 在每个币种之间添加延迟，避免API限制
-      if (coin.symbol !== 'doge') { // 最后一个币种不需要延迟
-        console.log('⏳ 等待3秒后处理下一个币种...');
-        await new Promise(resolve => setTimeout(resolve, 3000));
-      }
+    if (coin.symbol !== 'doge') { // 最后一个币种不需要延迟
+      console.log('⏳ 等待3秒后处理下一个币种...');
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    }
   }
   
   // 检查是否有成功的数据
