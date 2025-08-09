@@ -1,10 +1,12 @@
-name: Initialize Chart Data (One Time)
+name: Update Exchange Rate Cache
 
 on:
-  workflow_dispatch: # 只能手动触发
+  schedule:
+    - cron: "0 1 * * *" # 每天 01:00 UTC 运行（早于其他工作流）
+  workflow_dispatch:
 
 jobs:
-  init-all-chart-data:
+  update-exchange-rate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -18,29 +20,27 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Generate all chart data
+      - name: Update exchange rate
         run: |
-          echo "🚀 开始生成所有图表数据..."
-          npm run update:chart
-          echo "✅ 所有图表数据生成完成"
+          # 更新USD到CNY汇率缓存
+          npm run update:exchange
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # 添加文件到暂存区 - 新的独立图表文件
-          git add public/eth-chart-*.json || true
-          git add public/btc-chart-*.json || true
+          # 添加文件到暂存区
+          git add public/exchange-rate.json
           
           # 检查是否有改动
           if git diff --staged --quiet; then
-            echo "没有改动可提交"
+            echo "汇率没有变化，无需提交"
             exit 0
           fi
           
           # 尝试提交
-          git commit -m "初始化所有图表数据 [CI 自动]"
+          git commit -m "更新USD到CNY汇率缓存 [CI 自动]"
           
           # 重试推送机制（最多3次）
           for i in {1..3}; do

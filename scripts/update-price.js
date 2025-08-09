@@ -3,7 +3,8 @@ import fetch from "node-fetch";
 
 const coins = [
   { id: "ethereum", symbol: "eth" },
-  { id: "bitcoin", symbol: "btc" }
+  { id: "bitcoin", symbol: "btc" },
+  { id: "dogecoin", symbol: "doge" }
 ];
 
 async function fetchPriceData(coinId) {
@@ -138,10 +139,11 @@ async function update() {
     second: '2-digit'
   });
 
-  fs.writeFileSync("public/eth-btc-price.json", JSON.stringify(result, null, 2));
-  console.log("✅ 增强版实时价格已更新");
+  fs.writeFileSync("public/current-prices.json", JSON.stringify(result, null, 2));
+  console.log("✅ 实时价格数据已更新 (ETH+BTC+DOGE)");
   console.log(`📊 ETH: $${result.eth.current_price.usd} (24h: ${result.eth.changes['24h']}%)`);
   console.log(`📊 BTC: $${result.btc.current_price.usd} (24h: ${result.btc.changes['24h']}%)`);
+  console.log(`📊 DOGE: $${result.doge.current_price.usd} (24h: ${result.doge.changes['24h']}%)`);
 }
 
 update();

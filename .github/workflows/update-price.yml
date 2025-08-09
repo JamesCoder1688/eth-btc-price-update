@@ -1,8 +1,8 @@
-name: Update ETH & BTC Realtime Price
+name: Update ETH/BTC/DOGE Realtime Price
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # 每 5 分钟
+    - cron: "*/6 * * * *" # 每 6 分钟（优化API调用频率）
   workflow_dispatch: # 手动运行也可以
 
 jobs:
@@ -20,6 +20,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Update exchange rate cache
+        run: |
+          # 首先更新汇率缓存
+          npm run update:exchange
+          
       - name: Run update script
         run: |
           # 添加随机延迟以避免并发冲突
@@ -31,8 +36,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # 添加文件到暂存区
-          git add public/eth-btc-price.json
+          # 添加文件到暂存区（新架构）
+          git add public/current-prices.json public/exchange-rate.json
           
           # 检查是否有改动
           if git diff --staged --quiet; then
@@ -41,7 +46,7 @@ jobs:
           fi
           
           # 尝试提交
-          git commit -m "更新 ETH 和 BTC 实时价格数据 [CI 自动]"
+          git commit -m "更新 ETH/BTC/DOGE 实时价格数据 [CI 自动]"
           
           # 重试推送机制（最多3次）
           for i in {1..3}; do

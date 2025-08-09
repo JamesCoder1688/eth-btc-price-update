@@ -3,16 +3,18 @@ import fetch from "node-fetch";
 
 const coins = [
   { id: "ethereum", symbol: "eth" },
-  { id: "bitcoin", symbol: "btc" }
+  { id: "bitcoin", symbol: "btc" },
+  { id: "dogecoin", symbol: "doge" }
 ];
 
 // 时间段配置 - 使用免费market chart API
+// 专业级数据密度配置
 const periodConfigs = {
   '1h': { days: 1, points: 12 }, // 1小时走势：从24小时数据中取最近12个点
-  '24h': { days: 1, points: 24 }, // 24小时走势：每小时一个点
-  '7d': { days: 7, points: 42 }, // 7天走势：每4小时一个点
-  '30d': { days: 30, points: 30 }, // 30天走势：每天一个点
-  '1y': { days: 365, points: 52 } // 1年走势：每周一个点
+  '24h': { days: 1, points: 144 }, // 24小时走势：每10分钟一个点（专业级）
+  '7d': { days: 7, points: 112 }, // 7天走势：每1.5小时一个点（适中密度）
+  '30d': { days: 30, points: 120 }, // 30天走势：每6小时一个点（4倍密度）
+  '1y': { days: 365, points: 365 } // 1年数据：使用历史数据文件，每日精度
 };
 
 async function fetchMarketChartData(coinId, period) {
@@ -91,12 +93,12 @@ async function fetchWithRetry(url, maxRetries = 5, delay = 5000) {
   }
 }
 
-function processMarketChartData(marketData, period, coinSymbol) {
+function processMarketChartData(marketData, period, coinSymbol, exchangeRate = 7.18) {
   const config = periodConfigs[period];
   const { prices } = marketData;
   
-  // 获取CNY汇率（使用当前汇率估算）
-  const estimatedCnyRate = 7.18; // 临时汇率，实际应该动态获取
+  // 使用传入的汇率数据
+  const cnyRate = exchangeRate;
   
   // 处理不同时间段的数据采样
   let sampledData = [];
@@ -116,7 +118,7 @@ function processMarketChartData(marketData, period, coinSymbol) {
         second: '2-digit'
       }),
       price_usd: Math.round(price * 100) / 100,
-      price_cny: Math.round(price * estimatedCnyRate * 100) / 100
+      price_cny: Math.round(price * cnyRate * 100) / 100
     }));
   } else {
     // 其他时间段：均匀采样
@@ -139,7 +141,7 @@ function processMarketChartData(marketData, period, coinSymbol) {
           second: '2-digit'
         }),
         price_usd: Math.round(price * 100) / 100,
-        price_cny: Math.round(price * estimatedCnyRate * 100) / 100
+        price_cny: Math.round(price * cnyRate * 100) / 100
       });
     }
   }
@@ -157,11 +159,11 @@ function processMarketChartData(marketData, period, coinSymbol) {
     },
     high_price: {
       usd: Math.max(...priceValues),
-      cny: Math.round(Math.max(...priceValues) * estimatedCnyRate * 100) / 100
+      cny: Math.round(Math.max(...priceValues) * cnyRate * 100) / 100
     },
     low_price: {
       usd: Math.min(...priceValues),
-      cny: Math.round(Math.min(...priceValues) * estimatedCnyRate * 100) / 100
+      cny: Math.round(Math.min(...priceValues) * cnyRate * 100) / 100
     },
     change_percent: 0
   };
@@ -203,42 +205,93 @@ function getIntervalLabel(period) {
   return labels[period] || '1h';
 }
 
-// 生成单独的图表文件
-async function generateIndividualChartFiles() {
-  console.log(`🚀 开始生成独立的图表数据文件...`);
+// 读取汇率缓存
+async function getExchangeRate() {
+  try {
+    const exchangeRateData = JSON.parse(fs.readFileSync("public/exchange-rate.json", "utf8"));
+    return exchangeRateData.usd_to_cny || 7.18;
+  } catch (error) {
+    console.log(`⚠️  读取汇率缓存失败，使用默认汇率7.18: ${error.message}`);
+    return 7.18;
+  }
+}
+
+// 生成合并的图表数据文件（新架构）
+async function generateMergedChartFiles() {
+  console.log(`🚀 开始生成合并架构的图表数据文件...`);
   
-  const periods = ['1h', '24h', '7d', '30d', '1y'];
-  const coins = [
-    { id: 'ethereum', symbol: 'eth' },
-    { id: 'bitcoin', symbol: 'btc' }
-  ];
+  const periods = ['24h', '7d', '30d', '1y'];
+  const exchangeRate = await getExchangeRate();
+  console.log(`💱 使用汇率: 1 USD = ${exchangeRate} CNY`);
   
-  for (const coin of coins) {
-    for (const period of periods) {
-      try {
-        console.log(`🔄 正在处理 ${coin.symbol.toUpperCase()} ${period} 数据...`);
-        
-        const marketData = await fetchMarketChartData(coin.id, period);
-        const chartData = processMarketChartData(marketData, period, coin.symbol);
-        
-        // 保存为独立文件
-        const filename = `public/${coin.symbol}-chart-${period}.json`;
-        fs.writeFileSync(filename, JSON.stringify(chartData, null, 2));
-        
-        console.log(`✅ ${coin.symbol.toUpperCase()} ${period} 数据已保存到 ${filename}`);
-        
-        // 添加延迟避免API限制
-        console.log(`⏳ 等待5秒后处理下一个数据...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
-        
-      } catch (error) {
-        console.error(`❌ 生成 ${coin.symbol} ${period} 数据失败:`, error.message);
-        continue;
+  for (const period of periods) {
+    try {
+      console.log(`🔄 正在处理 ${period} 合并数据...`);
+      
+      const mergedData = {
+        period: period,
+        interval: getIntervalLabel(period),
+        data_type: "price",
+        coins: {},
+        last_updated: new Date().toLocaleString('zh-CN', {
+          timeZone: 'Asia/Shanghai',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        })
+      };
+      
+      // 为每个币种获取数据
+      for (const coin of coins) {
+        try {
+          console.log(`  📈 获取 ${coin.symbol.toUpperCase()} ${period} 数据...`);
+          
+          const marketData = await fetchMarketChartData(coin.id, period);
+          const chartData = processMarketChartData(marketData, period, coin.symbol, exchangeRate);
+          
+          // 只保存币种特定的数据部分到合并结构中
+          mergedData.coins[coin.symbol] = {
+            data: chartData.data,
+            summary: chartData.summary
+          };
+          
+          console.log(`  ✅ ${coin.symbol.toUpperCase()} ${period} 数据处理完成 (${chartData.data.length}个数据点)`);
+          
+          // 添加延迟避免API限制
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          
+        } catch (error) {
+          console.error(`  ❌ ${coin.symbol} ${period} 数据获取失败:`, error.message);
+          // 继续处理其他币种
+          continue;
+        }
       }
+      
+      // 检查是否有成功的数据
+      const successCoins = Object.keys(mergedData.coins).length;
+      if (successCoins > 0) {
+        // 保存合并的文件
+        const filename = `public/chart-${period}.json`;
+        fs.writeFileSync(filename, JSON.stringify(mergedData, null, 2));
+        console.log(`✅ ${period} 合并数据已保存到 ${filename} (包含${successCoins}个币种)`);
+      } else {
+        console.error(`❌ ${period} 没有成功获取任何币种数据`);
+      }
+      
+      // 添加更长延迟避免API限制
+      console.log(`⏳ 等待10秒后处理下一个时间段...`);
+      await new Promise(resolve => setTimeout(resolve, 10000));
+      
+    } catch (error) {
+      console.error(`❌ 生成 ${period} 合并数据失败:`, error.message);
+      continue;
     }
   }
   
-  console.log(`🎉 独立图表数据文件生成完成！`);
+  console.log(`🎉 合并图表数据文件生成完成！`);
 }
 
 // 动态图表数据API实现
@@ -313,36 +366,60 @@ async function generateChartDataAPI() {
   console.log(`📋 共生成 ${Object.keys(chartDataMap).length} 个图表数据集`);
 }
 
-// 单独更新特定时间段的数据
+// 单独更新特定时间段的合并数据
 async function updateSpecificPeriod(period) {
-  console.log(`🔄 更新 ${period} 时间段的图表数据...`);
+  console.log(`🔄 更新 ${period} 时间段的合并图表数据...`);
+  
+  const exchangeRate = await getExchangeRate();
+  console.log(`💱 使用汇率: 1 USD = ${exchangeRate} CNY`);
+  
+  const mergedData = {
+    period: period,
+    interval: getIntervalLabel(period),
+    data_type: "price",
+    coins: {},
+    last_updated: new Date().toLocaleString('zh-CN', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    })
+  };
   
   for (const coin of coins) {
     try {
+      console.log(`  📈 更新 ${coin.symbol.toUpperCase()} ${period} 数据...`);
+      
       const marketData = await fetchMarketChartData(coin.id, period);
-      const chartData = processMarketChartData(marketData, period, coin.symbol);
+      const chartData = processMarketChartData(marketData, period, coin.symbol, exchangeRate);
       
-      // 更新缓存文件中的对应数据
-      let existingData = {};
-      try {
-        const existingContent = fs.readFileSync("public/chart-data-cache.json", "utf8");
-        existingData = JSON.parse(existingContent);
-      } catch (error) {
-        console.log("创建新的缓存文件...");
-      }
+      // 保存到合并结构中
+      mergedData.coins[coin.symbol] = {
+        data: chartData.data,
+        summary: chartData.summary
+      };
       
-      const key = `${coin.symbol}_${period}`;
-      existingData[key] = chartData;
-      
-      fs.writeFileSync("public/chart-data-cache.json", JSON.stringify(existingData, null, 2));
-      
-      console.log(`✅ ${coin.symbol.toUpperCase()} ${period} 数据已更新`);
+      console.log(`  ✅ ${coin.symbol.toUpperCase()} ${period} 数据更新完成`);
       
       // 添加延迟避免API限制
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
     } catch (error) {
-      console.error(`❌ 更新 ${coin.symbol} ${period} 失败:`, error.message);
+      console.error(`  ❌ 更新 ${coin.symbol} ${period} 失败:`, error.message);
     }
+  }
+  
+  // 检查是否有成功的数据
+  const successCoins = Object.keys(mergedData.coins).length;
+  if (successCoins > 0) {
+    // 保存合并的文件
+    const filename = `public/chart-${period}.json`;
+    fs.writeFileSync(filename, JSON.stringify(mergedData, null, 2));
+    console.log(`✅ ${period} 合并数据已更新到 ${filename} (包含${successCoins}个币种)`);
+  } else {
+    console.error(`❌ ${period} 没有成功更新任何币种数据`);
   }
 }
 
@@ -350,8 +427,8 @@ async function updateSpecificPeriod(period) {
 const args = process.argv.slice(2);
 const command = args[0];
 
-if (command === 'generate') {
-  generateIndividualChartFiles();
+if (command === 'merged' || !command) {
+  generateMergedChartFiles(); // 默认使用新的合并架构
 } else if (command === 'legacy') {
   generateChartDataAPI(); // 保留旧的缓存方式
 } else if (command && periodConfigs[command]) {
@@ -359,9 +436,7 @@ if (command === 'generate') {
 } else if (command) {
   console.error(`❌ 不支持的命令: ${command}`);
   console.log("支持的命令:");
-  console.log("  generate - 生成独立的图表数据文件");
-  console.log("  legacy - 生成缓存的图表数据");
-  console.log("  1h, 24h, 7d, 30d, 1y - 更新特定时间段的数据");
-} else {
-  generateIndividualChartFiles();
+  console.log("  merged - 生成合并架构的图表数据文件 (默认)");
+  console.log("  legacy - 生成缓存的图表数据 (旧版)");
+  console.log("  24h, 7d, 30d, 1y - 更新特定时间段的合并数据");
 }
