@@ -298,18 +298,23 @@ async function generateMergedChartFiles() {
 async function generateChartDataAPI() {
   console.log(`🚀 开始生成图表数据，使用保守的API调用策略...`);
   
-  // 分批处理，降低API压力
+  // 分批处理，降低API压力，支持ETH/BTC/DOGE三币种
   const commonQueries = [
     { coin: 'eth', period: '24h' },  // 先生成最重要的数据
     { coin: 'btc', period: '24h' },
+    { coin: 'doge', period: '24h' },
     { coin: 'eth', period: '7d' },
     { coin: 'btc', period: '7d' },
+    { coin: 'doge', period: '7d' },
     { coin: 'eth', period: '1y' },
     { coin: 'btc', period: '1y' },
+    { coin: 'doge', period: '1y' },
     { coin: 'eth', period: '1h' },   // 1小时数据放后面
     { coin: 'btc', period: '1h' },
+    { coin: 'doge', period: '1h' },
     { coin: 'eth', period: '30d' },  // 30天数据最后
-    { coin: 'btc', period: '30d' }
+    { coin: 'btc', period: '30d' },
+    { coin: 'doge', period: '30d' }
   ];
   
   const chartDataMap = {};
@@ -318,8 +323,10 @@ async function generateChartDataAPI() {
     try {
       console.log(`🚀 开始处理 ${query.coin.toUpperCase()} ${query.period} 图表数据...`);
       
+      // 根据币种符号获取正确的CoinGecko ID
+      const coinIdMap = { 'eth': 'ethereum', 'btc': 'bitcoin', 'doge': 'dogecoin' };
       const marketData = await fetchMarketChartData(
-        query.coin === 'eth' ? 'ethereum' : 'bitcoin', 
+        coinIdMap[query.coin], 
         query.period
       );
       
@@ -341,7 +348,7 @@ async function generateChartDataAPI() {
   
   // 检查是否有成功生成的数据
   const successCount = Object.keys(chartDataMap).length;
-  console.log(`📊 成功生成 ${successCount}/10 个图表数据集`);
+  console.log(`📊 成功生成 ${successCount}/15 个图表数据集`);
   
   if (successCount === 0) {
     console.error(`❌ 所有图表数据生成失败，请检查网络连接和API状态`);
