@@ -1,0 +1,2093 @@
+{
+  "period": "7d",
+  "interval": "4h",
+  "data_type": "price",
+  "coins": {
+    "eth": {
+      "data": [
+        {
+          "timestamp": 1754132650,
+          "datetime": "2025/08/02 19:04:10",
+          "price_usd": 3487.94,
+          "price_cny": 25078.31
+        },
+        {
+          "timestamp": 1754136539,
+          "datetime": "2025/08/02 20:08:59",
+          "price_usd": 3506.31,
+          "price_cny": 25210.38
+        },
+        {
+          "timestamp": 1754139687,
+          "datetime": "2025/08/02 21:01:27",
+          "price_usd": 3507.63,
+          "price_cny": 25219.87
+        },
+        {
+          "timestamp": 1754143735,
+          "datetime": "2025/08/02 22:08:55",
+          "price_usd": 3509.23,
+          "price_cny": 25231.39
+        },
+        {
+          "timestamp": 1754147156,
+          "datetime": "2025/08/02 23:05:56",
+          "price_usd": 3474.24,
+          "price_cny": 24979.79
+        },
+        {
+          "timestamp": 1754150680,
+          "datetime": "2025/08/03 00:04:40",
+          "price_usd": 3456.79,
+          "price_cny": 24854.33
+        },
+        {
+          "timestamp": 1754154259,
+          "datetime": "2025/08/03 01:04:19",
+          "price_usd": 3467.73,
+          "price_cny": 24932.98
+        },
+        {
+          "timestamp": 1754158139,
+          "datetime": "2025/08/03 02:08:59",
+          "price_usd": 3423.22,
+          "price_cny": 24612.96
+        },
+        {
+          "timestamp": 1754161439,
+          "datetime": "2025/08/03 03:03:59",
+          "price_usd": 3380.72,
+          "price_cny": 24307.4
+        },
+        {
+          "timestamp": 1754165063,
+          "datetime": "2025/08/03 04:04:23",
+          "price_usd": 3400.35,
+          "price_cny": 24448.54
+        },
+        {
+          "timestamp": 1754168433,
+          "datetime": "2025/08/03 05:00:33",
+          "price_usd": 3416.43,
+          "price_cny": 24564.11
+        },
+        {
+          "timestamp": 1754172540,
+          "datetime": "2025/08/03 06:09:00",
+          "price_usd": 3418.41,
+          "price_cny": 24578.39
+        },
+        {
+          "timestamp": 1754176045,
+          "datetime": "2025/08/03 07:07:25",
+          "price_usd": 3415.17,
+          "price_cny": 24555.09
+        },
+        {
+          "timestamp": 1754179736,
+          "datetime": "2025/08/03 08:08:56",
+          "price_usd": 3400.74,
+          "price_cny": 24451.33
+        },
+        {
+          "timestamp": 1754183163,
+          "datetime": "2025/08/03 09:06:03",
+          "price_usd": 3405.28,
+          "price_cny": 24483.94
+        },
+        {
+          "timestamp": 1754186606,
+          "datetime": "2025/08/03 10:03:26",
+          "price_usd": 3414.55,
+          "price_cny": 24550.61
+        },
+        {
+          "timestamp": 1754190294,
+          "datetime": "2025/08/03 11:04:54",
+          "price_usd": 3441.96,
+          "price_cny": 24747.71
+        },
+        {
+          "timestamp": 1754194149,
+          "datetime": "2025/08/03 12:09:09",
+          "price_usd": 3446.85,
+          "price_cny": 24782.82
+        },
+        {
+          "timestamp": 1754197497,
+          "datetime": "2025/08/03 13:04:57",
+          "price_usd": 3437.83,
+          "price_cny": 24717.99
+        },
+        {
+          "timestamp": 1754201046,
+          "datetime": "2025/08/03 14:04:06",
+          "price_usd": 3443.28,
+          "price_cny": 24757.21
+        },
+        {
+          "timestamp": 1754204693,
+          "datetime": "2025/08/03 15:04:53",
+          "price_usd": 3441.81,
+          "price_cny": 24746.64
+        },
+        {
+          "timestamp": 1754208243,
+          "datetime": "2025/08/03 16:04:03",
+          "price_usd": 3455.01,
+          "price_cny": 24841.49
+        },
+        {
+          "timestamp": 1754212163,
+          "datetime": "2025/08/03 17:09:23",
+          "price_usd": 3460.54,
+          "price_cny": 24881.26
+        },
+        {
+          "timestamp": 1754215442,
+          "datetime": "2025/08/03 18:04:02",
+          "price_usd": 3464.03,
+          "price_cny": 24906.37
+        },
+        {
+          "timestamp": 1754219324,
+          "datetime": "2025/08/03 19:08:44",
+          "price_usd": 3487.64,
+          "price_cny": 25076.11
+        },
+        {
+          "timestamp": 1754222981,
+          "datetime": "2025/08/03 20:09:41",
+          "price_usd": 3484.31,
+          "price_cny": 25052.17
+        },
+        {
+          "timestamp": 1754226452,
+          "datetime": "2025/08/03 21:07:32",
+          "price_usd": 3495.4,
+          "price_cny": 25131.92
+        },
+        {
+          "timestamp": 1754230056,
+          "datetime": "2025/08/03 22:07:36",
+          "price_usd": 3490.02,
+          "price_cny": 25093.22
+        },
+        {
+          "timestamp": 1754233522,
+          "datetime": "2025/08/03 23:05:22",
+          "price_usd": 3472.84,
+          "price_cny": 24969.74
+        },
+        {
+          "timestamp": 1754237245,
+          "datetime": "2025/08/04 00:07:25",
+          "price_usd": 3474.63,
+          "price_cny": 24982.56
+        },
+        {
+          "timestamp": 1754240783,
+          "datetime": "2025/08/04 01:06:23",
+          "price_usd": 3491,
+          "price_cny": 25100.31
+        },
+        {
+          "timestamp": 1754244198,
+          "datetime": "2025/08/04 02:03:18",
+          "price_usd": 3487.35,
+          "price_cny": 25074.01
+        },
+        {
+          "timestamp": 1754248171,
+          "datetime": "2025/08/04 03:09:31",
+          "price_usd": 3492.71,
+          "price_cny": 25112.55
+        },
+        {
+          "timestamp": 1754251213,
+          "datetime": "2025/08/04 04:00:13",
+          "price_usd": 3497.42,
+          "price_cny": 25146.46
+        },
+        {
+          "timestamp": 1754255325,
+          "datetime": "2025/08/04 05:08:45",
+          "price_usd": 3491.16,
+          "price_cny": 25101.42
+        },
+        {
+          "timestamp": 1754258977,
+          "datetime": "2025/08/04 06:09:37",
+          "price_usd": 3501.56,
+          "price_cny": 25176.2
+        },
+        {
+          "timestamp": 1754262281,
+          "datetime": "2025/08/04 07:04:41",
+          "price_usd": 3504.1,
+          "price_cny": 25194.45
+        },
+        {
+          "timestamp": 1754266135,
+          "datetime": "2025/08/04 08:08:55",
+          "price_usd": 3497.79,
+          "price_cny": 25149.1
+        },
+        {
+          "timestamp": 1754269430,
+          "datetime": "2025/08/04 09:03:50",
+          "price_usd": 3545.85,
+          "price_cny": 25494.65
+        },
+        {
+          "timestamp": 1754273342,
+          "datetime": "2025/08/04 10:09:02",
+          "price_usd": 3537,
+          "price_cny": 25431
+        },
+        {
+          "timestamp": 1754276655,
+          "datetime": "2025/08/04 11:04:15",
+          "price_usd": 3567.29,
+          "price_cny": 25648.82
+        },
+        {
+          "timestamp": 1754280140,
+          "datetime": "2025/08/04 12:02:20",
+          "price_usd": 3558.97,
+          "price_cny": 25588.96
+        },
+        {
+          "timestamp": 1754284137,
+          "datetime": "2025/08/04 13:08:57",
+          "price_usd": 3538.02,
+          "price_cny": 25438.37
+        },
+        {
+          "timestamp": 1754287522,
+          "datetime": "2025/08/04 14:05:22",
+          "price_usd": 3533.73,
+          "price_cny": 25407.5
+        },
+        {
+          "timestamp": 1754291323,
+          "datetime": "2025/08/04 15:08:43",
+          "price_usd": 3540.39,
+          "price_cny": 25455.38
+        },
+        {
+          "timestamp": 1754294954,
+          "datetime": "2025/08/04 16:09:14",
+          "price_usd": 3554.87,
+          "price_cny": 25559.48
+        },
+        {
+          "timestamp": 1754298245,
+          "datetime": "2025/08/04 17:04:05",
+          "price_usd": 3551.14,
+          "price_cny": 25532.72
+        },
+        {
+          "timestamp": 1754302178,
+          "datetime": "2025/08/04 18:09:38",
+          "price_usd": 3547.41,
+          "price_cny": 25505.91
+        },
+        {
+          "timestamp": 1754305726,
+          "datetime": "2025/08/04 19:08:46",
+          "price_usd": 3557.3,
+          "price_cny": 25577.02
+        },
+        {
+          "timestamp": 1754309339,
+          "datetime": "2025/08/04 20:08:59",
+          "price_usd": 3555.55,
+          "price_cny": 25564.38
+        },
+        {
+          "timestamp": 1754312983,
+          "datetime": "2025/08/04 21:09:43",
+          "price_usd": 3570.15,
+          "price_cny": 25669.38
+        },
+        {
+          "timestamp": 1754316298,
+          "datetime": "2025/08/04 22:04:58",
+          "price_usd": 3619.17,
+          "price_cny": 26021.82
+        },
+        {
+          "timestamp": 1754320163,
+          "datetime": "2025/08/04 23:09:23",
+          "price_usd": 3638.83,
+          "price_cny": 26163.21
+        },
+        {
+          "timestamp": 1754323497,
+          "datetime": "2025/08/05 00:04:57",
+          "price_usd": 3647.31,
+          "price_cny": 26224.14
+        },
+        {
+          "timestamp": 1754327395,
+          "datetime": "2025/08/05 01:09:55",
+          "price_usd": 3688.61,
+          "price_cny": 26521.14
+        },
+        {
+          "timestamp": 1754330944,
+          "datetime": "2025/08/05 02:09:04",
+          "price_usd": 3685.33,
+          "price_cny": 26497.55
+        },
+        {
+          "timestamp": 1754334662,
+          "datetime": "2025/08/05 03:11:02",
+          "price_usd": 3676.25,
+          "price_cny": 26432.27
+        },
+        {
+          "timestamp": 1754338160,
+          "datetime": "2025/08/05 04:09:20",
+          "price_usd": 3666.63,
+          "price_cny": 26363.08
+        },
+        {
+          "timestamp": 1754341434,
+          "datetime": "2025/08/05 05:03:54",
+          "price_usd": 3704.16,
+          "price_cny": 26632.93
+        },
+        {
+          "timestamp": 1754345388,
+          "datetime": "2025/08/05 06:09:48",
+          "price_usd": 3718.41,
+          "price_cny": 26735.35
+        },
+        {
+          "timestamp": 1754348595,
+          "datetime": "2025/08/05 07:03:15",
+          "price_usd": 3730.31,
+          "price_cny": 26820.93
+        },
+        {
+          "timestamp": 1754352297,
+          "datetime": "2025/08/05 08:04:57",
+          "price_usd": 3715.71,
+          "price_cny": 26715.95
+        },
+        {
+          "timestamp": 1754355761,
+          "datetime": "2025/08/05 09:02:41",
+          "price_usd": 3697.98,
+          "price_cny": 26588.46
+        },
+        {
+          "timestamp": 1754359454,
+          "datetime": "2025/08/05 10:04:14",
+          "price_usd": 3682.24,
+          "price_cny": 26475.33
+        },
+        {
+          "timestamp": 1754363055,
+          "datetime": "2025/08/05 11:04:15",
+          "price_usd": 3678.41,
+          "price_cny": 26447.75
+        },
+        {
+          "timestamp": 1754366675,
+          "datetime": "2025/08/05 12:04:35",
+          "price_usd": 3653.13,
+          "price_cny": 26266
+        },
+        {
+          "timestamp": 1754370275,
+          "datetime": "2025/08/05 13:04:35",
+          "price_usd": 3650.61,
+          "price_cny": 26247.88
+        },
+        {
+          "timestamp": 1754374125,
+          "datetime": "2025/08/05 14:08:45",
+          "price_usd": 3670.35,
+          "price_cny": 26389.8
+        },
+        {
+          "timestamp": 1754377446,
+          "datetime": "2025/08/05 15:04:06",
+          "price_usd": 3647.07,
+          "price_cny": 26222.44
+        },
+        {
+          "timestamp": 1754381044,
+          "datetime": "2025/08/05 16:04:04",
+          "price_usd": 3612.36,
+          "price_cny": 25972.88
+        },
+        {
+          "timestamp": 1754384957,
+          "datetime": "2025/08/05 17:09:17",
+          "price_usd": 3635.05,
+          "price_cny": 26135.98
+        },
+        {
+          "timestamp": 1754388209,
+          "datetime": "2025/08/05 18:03:29",
+          "price_usd": 3659.57,
+          "price_cny": 26312.3
+        },
+        {
+          "timestamp": 1754392183,
+          "datetime": "2025/08/05 19:09:43",
+          "price_usd": 3675.38,
+          "price_cny": 26425.95
+        },
+        {
+          "timestamp": 1754395743,
+          "datetime": "2025/08/05 20:09:03",
+          "price_usd": 3669.69,
+          "price_cny": 26385.09
+        },
+        {
+          "timestamp": 1754399329,
+          "datetime": "2025/08/05 21:08:49",
+          "price_usd": 3630.36,
+          "price_cny": 26102.32
+        },
+        {
+          "timestamp": 1754402449,
+          "datetime": "2025/08/05 22:00:49",
+          "price_usd": 3650.29,
+          "price_cny": 26245.6
+        },
+        {
+          "timestamp": 1754406252,
+          "datetime": "2025/08/05 23:04:12",
+          "price_usd": 3571.38,
+          "price_cny": 25678.22
+        },
+        {
+          "timestamp": 1754409842,
+          "datetime": "2025/08/06 00:04:02",
+          "price_usd": 3564.68,
+          "price_cny": 25630.05
+        },
+        {
+          "timestamp": 1754413774,
+          "datetime": "2025/08/06 01:09:34",
+          "price_usd": 3579.51,
+          "price_cny": 25736.66
+        },
+        {
+          "timestamp": 1754417367,
+          "datetime": "2025/08/06 02:09:27",
+          "price_usd": 3601.57,
+          "price_cny": 25895.28
+        },
+        {
+          "timestamp": 1754420455,
+          "datetime": "2025/08/06 03:00:55",
+          "price_usd": 3573.92,
+          "price_cny": 25696.49
+        },
+        {
+          "timestamp": 1754424080,
+          "datetime": "2025/08/06 04:01:20",
+          "price_usd": 3572.12,
+          "price_cny": 25683.55
+        },
+        {
+          "timestamp": 1754428147,
+          "datetime": "2025/08/06 05:09:07",
+          "price_usd": 3578.69,
+          "price_cny": 25730.75
+        },
+        {
+          "timestamp": 1754431797,
+          "datetime": "2025/08/06 06:09:57",
+          "price_usd": 3560.33,
+          "price_cny": 25598.78
+        },
+        {
+          "timestamp": 1754435372,
+          "datetime": "2025/08/06 07:09:32",
+          "price_usd": 3599.85,
+          "price_cny": 25882.9
+        },
+        {
+          "timestamp": 1754438951,
+          "datetime": "2025/08/06 08:09:11",
+          "price_usd": 3611.96,
+          "price_cny": 25970.03
+        },
+        {
+          "timestamp": 1754442546,
+          "datetime": "2025/08/06 09:09:06",
+          "price_usd": 3577.48,
+          "price_cny": 25722.05
+        },
+        {
+          "timestamp": 1754446140,
+          "datetime": "2025/08/06 10:09:00",
+          "price_usd": 3589.45,
+          "price_cny": 25808.14
+        },
+        {
+          "timestamp": 1754449740,
+          "datetime": "2025/08/06 11:09:00",
+          "price_usd": 3589.13,
+          "price_cny": 25805.88
+        },
+        {
+          "timestamp": 1754453366,
+          "datetime": "2025/08/06 12:09:26",
+          "price_usd": 3582.21,
+          "price_cny": 25756.11
+        },
+        {
+          "timestamp": 1754456979,
+          "datetime": "2025/08/06 13:09:39",
+          "price_usd": 3575.69,
+          "price_cny": 25709.22
+        },
+        {
+          "timestamp": 1754460590,
+          "datetime": "2025/08/06 14:09:50",
+          "price_usd": 3631.75,
+          "price_cny": 26112.25
+        },
+        {
+          "timestamp": 1754464167,
+          "datetime": "2025/08/06 15:09:27",
+          "price_usd": 3632.92,
+          "price_cny": 26120.69
+        },
+        {
+          "timestamp": 1754467758,
+          "datetime": "2025/08/06 16:09:18",
+          "price_usd": 3638.59,
+          "price_cny": 26161.43
+        },
+        {
+          "timestamp": 1754470970,
+          "datetime": "2025/08/06 17:02:50",
+          "price_usd": 3619.17,
+          "price_cny": 26021.85
+        },
+        {
+          "timestamp": 1754474692,
+          "datetime": "2025/08/06 18:04:52",
+          "price_usd": 3627.65,
+          "price_cny": 26082.83
+        },
+        {
+          "timestamp": 1754478535,
+          "datetime": "2025/08/06 19:08:55",
+          "price_usd": 3617.86,
+          "price_cny": 26012.4
+        },
+        {
+          "timestamp": 1754482140,
+          "datetime": "2025/08/06 20:09:00",
+          "price_usd": 3620.74,
+          "price_cny": 26033.13
+        },
+        {
+          "timestamp": 1754485454,
+          "datetime": "2025/08/06 21:04:14",
+          "price_usd": 3583.92,
+          "price_cny": 25768.41
+        },
+        {
+          "timestamp": 1754489284,
+          "datetime": "2025/08/06 22:08:04",
+          "price_usd": 3613.64,
+          "price_cny": 25982.09
+        },
+        {
+          "timestamp": 1754493021,
+          "datetime": "2025/08/06 23:10:21",
+          "price_usd": 3629.39,
+          "price_cny": 26095.28
+        },
+        {
+          "timestamp": 1754496591,
+          "datetime": "2025/08/07 00:09:51",
+          "price_usd": 3666.63,
+          "price_cny": 26363.07
+        },
+        {
+          "timestamp": 1754500150,
+          "datetime": "2025/08/07 01:09:10",
+          "price_usd": 3645.86,
+          "price_cny": 26213.75
+        },
+        {
+          "timestamp": 1754503581,
+          "datetime": "2025/08/07 02:06:21",
+          "price_usd": 3683.79,
+          "price_cny": 26486.46
+        },
+        {
+          "timestamp": 1754507455,
+          "datetime": "2025/08/07 03:10:55",
+          "price_usd": 3681.7,
+          "price_cny": 26471.4
+        },
+        {
+          "timestamp": 1754510958,
+          "datetime": "2025/08/07 04:09:18",
+          "price_usd": 3678.37,
+          "price_cny": 26447.5
+        },
+        {
+          "timestamp": 1754514577,
+          "datetime": "2025/08/07 05:09:37",
+          "price_usd": 3678.37,
+          "price_cny": 26447.48
+        },
+        {
+          "timestamp": 1754517647,
+          "datetime": "2025/08/07 06:00:47",
+          "price_usd": 3667.47,
+          "price_cny": 26369.13
+        },
+        {
+          "timestamp": 1754521740,
+          "datetime": "2025/08/07 07:09:00",
+          "price_usd": 3680.69,
+          "price_cny": 26464.17
+        },
+        {
+          "timestamp": 1754525368,
+          "datetime": "2025/08/07 08:09:28",
+          "price_usd": 3684.05,
+          "price_cny": 26488.29
+        },
+        {
+          "timestamp": 1754528954,
+          "datetime": "2025/08/07 09:09:14",
+          "price_usd": 3674.31,
+          "price_cny": 26418.32
+        },
+        {
+          "timestamp": 1754532588,
+          "datetime": "2025/08/07 10:09:48",
+          "price_usd": 3667.61,
+          "price_cny": 26370.12
+        }
+      ],
+      "summary": {
+        "start_price": {
+          "usd": 3487.94,
+          "cny": 25078.31
+        },
+        "end_price": {
+          "usd": 3667.61,
+          "cny": 26370.12
+        },
+        "high_price": {
+          "usd": 3730.31,
+          "cny": 26820.93
+        },
+        "low_price": {
+          "usd": 3380.72,
+          "cny": 24307.38
+        },
+        "change_percent": 5.15
+      }
+    },
+    "btc": {
+      "data": [
+        {
+          "timestamp": 1754132663,
+          "datetime": "2025/08/02 19:04:23",
+          "price_usd": 113556.14,
+          "price_cny": 816468.67
+        },
+        {
+          "timestamp": 1754136545,
+          "datetime": "2025/08/02 20:09:05",
+          "price_usd": 113723.06,
+          "price_cny": 817668.84
+        },
+        {
+          "timestamp": 1754139702,
+          "datetime": "2025/08/02 21:01:42",
+          "price_usd": 113608.91,
+          "price_cny": 816848.06
+        },
+        {
+          "timestamp": 1754143735,
+          "datetime": "2025/08/02 22:08:55",
+          "price_usd": 113459.17,
+          "price_cny": 815771.43
+        },
+        {
+          "timestamp": 1754147153,
+          "datetime": "2025/08/02 23:05:53",
+          "price_usd": 113019.51,
+          "price_cny": 812610.3
+        },
+        {
+          "timestamp": 1754150672,
+          "datetime": "2025/08/03 00:04:32",
+          "price_usd": 112875.6,
+          "price_cny": 811575.55
+        },
+        {
+          "timestamp": 1754154502,
+          "datetime": "2025/08/03 01:08:22",
+          "price_usd": 113176.42,
+          "price_cny": 813738.46
+        },
+        {
+          "timestamp": 1754158137,
+          "datetime": "2025/08/03 02:08:57",
+          "price_usd": 112758.53,
+          "price_cny": 810733.8
+        },
+        {
+          "timestamp": 1754161743,
+          "datetime": "2025/08/03 03:09:03",
+          "price_usd": 112296.38,
+          "price_cny": 807410.96
+        },
+        {
+          "timestamp": 1754165063,
+          "datetime": "2025/08/03 04:04:23",
+          "price_usd": 112368.15,
+          "price_cny": 807927
+        },
+        {
+          "timestamp": 1754168427,
+          "datetime": "2025/08/03 05:00:27",
+          "price_usd": 112549.78,
+          "price_cny": 809232.94
+        },
+        {
+          "timestamp": 1754172539,
+          "datetime": "2025/08/03 06:08:59",
+          "price_usd": 112896.8,
+          "price_cny": 811728.03
+        },
+        {
+          "timestamp": 1754176117,
+          "datetime": "2025/08/03 07:08:37",
+          "price_usd": 112869.4,
+          "price_cny": 811530.97
+        },
+        {
+          "timestamp": 1754179737,
+          "datetime": "2025/08/03 08:08:57",
+          "price_usd": 112572.13,
+          "price_cny": 809393.6
+        },
+        {
+          "timestamp": 1754183305,
+          "datetime": "2025/08/03 09:08:25",
+          "price_usd": 112894.7,
+          "price_cny": 811712.89
+        },
+        {
+          "timestamp": 1754186579,
+          "datetime": "2025/08/03 10:02:59",
+          "price_usd": 113073.66,
+          "price_cny": 812999.6
+        },
+        {
+          "timestamp": 1754190449,
+          "datetime": "2025/08/03 11:07:29",
+          "price_usd": 113457.52,
+          "price_cny": 815759.58
+        },
+        {
+          "timestamp": 1754194149,
+          "datetime": "2025/08/03 12:09:09",
+          "price_usd": 113649.54,
+          "price_cny": 817140.21
+        },
+        {
+          "timestamp": 1754197735,
+          "datetime": "2025/08/03 13:08:55",
+          "price_usd": 113435.83,
+          "price_cny": 815603.61
+        },
+        {
+          "timestamp": 1754201027,
+          "datetime": "2025/08/03 14:03:47",
+          "price_usd": 113577.79,
+          "price_cny": 816624.32
+        },
+        {
+          "timestamp": 1754204689,
+          "datetime": "2025/08/03 15:04:49",
+          "price_usd": 113567.17,
+          "price_cny": 816547.94
+        },
+        {
+          "timestamp": 1754208242,
+          "datetime": "2025/08/03 16:04:02",
+          "price_usd": 113668.2,
+          "price_cny": 817274.35
+        },
+        {
+          "timestamp": 1754212161,
+          "datetime": "2025/08/03 17:09:21",
+          "price_usd": 113670.86,
+          "price_cny": 817293.5
+        },
+        {
+          "timestamp": 1754215713,
+          "datetime": "2025/08/03 18:08:33",
+          "price_usd": 113638.41,
+          "price_cny": 817060.19
+        },
+        {
+          "timestamp": 1754219281,
+          "datetime": "2025/08/03 19:08:01",
+          "price_usd": 113912.57,
+          "price_cny": 819031.4
+        },
+        {
+          "timestamp": 1754222980,
+          "datetime": "2025/08/03 20:09:40",
+          "price_usd": 113866.72,
+          "price_cny": 818701.73
+        },
+        {
+          "timestamp": 1754226451,
+          "datetime": "2025/08/03 21:07:31",
+          "price_usd": 114046.81,
+          "price_cny": 819996.59
+        },
+        {
+          "timestamp": 1754229862,
+          "datetime": "2025/08/03 22:04:22",
+          "price_usd": 113941.79,
+          "price_cny": 819241.48
+        },
+        {
+          "timestamp": 1754233600,
+          "datetime": "2025/08/03 23:06:40",
+          "price_usd": 113782.64,
+          "price_cny": 818097.17
+        },
+        {
+          "timestamp": 1754237244,
+          "datetime": "2025/08/04 00:07:24",
+          "price_usd": 113926.7,
+          "price_cny": 819132.99
+        },
+        {
+          "timestamp": 1754240759,
+          "datetime": "2025/08/04 01:05:59",
+          "price_usd": 113964.77,
+          "price_cny": 819406.73
+        },
+        {
+          "timestamp": 1754244044,
+          "datetime": "2025/08/04 02:00:44",
+          "price_usd": 114043,
+          "price_cny": 819969.14
+        },
+        {
+          "timestamp": 1754247642,
+          "datetime": "2025/08/04 03:00:42",
+          "price_usd": 114347.95,
+          "price_cny": 822161.75
+        },
+        {
+          "timestamp": 1754251352,
+          "datetime": "2025/08/04 04:02:32",
+          "price_usd": 114310.97,
+          "price_cny": 821895.86
+        },
+        {
+          "timestamp": 1754255319,
+          "datetime": "2025/08/04 05:08:39",
+          "price_usd": 114396.62,
+          "price_cny": 822511.72
+        },
+        {
+          "timestamp": 1754258977,
+          "datetime": "2025/08/04 06:09:37",
+          "price_usd": 114398.34,
+          "price_cny": 822524.03
+        },
+        {
+          "timestamp": 1754262277,
+          "datetime": "2025/08/04 07:04:37",
+          "price_usd": 114319.44,
+          "price_cny": 821956.76
+        },
+        {
+          "timestamp": 1754266135,
+          "datetime": "2025/08/04 08:08:55",
+          "price_usd": 114235.1,
+          "price_cny": 821350.39
+        },
+        {
+          "timestamp": 1754269400,
+          "datetime": "2025/08/04 09:03:20",
+          "price_usd": 114869.25,
+          "price_cny": 825909.89
+        },
+        {
+          "timestamp": 1754273348,
+          "datetime": "2025/08/04 10:09:08",
+          "price_usd": 114666.6,
+          "price_cny": 824452.85
+        },
+        {
+          "timestamp": 1754276648,
+          "datetime": "2025/08/04 11:04:08",
+          "price_usd": 114776.26,
+          "price_cny": 825241.29
+        },
+        {
+          "timestamp": 1754280034,
+          "datetime": "2025/08/04 12:00:34",
+          "price_usd": 114621.92,
+          "price_cny": 824131.63
+        },
+        {
+          "timestamp": 1754284047,
+          "datetime": "2025/08/04 13:07:27",
+          "price_usd": 114348.29,
+          "price_cny": 822164.21
+        },
+        {
+          "timestamp": 1754287688,
+          "datetime": "2025/08/04 14:08:08",
+          "price_usd": 114382.09,
+          "price_cny": 822407.2
+        },
+        {
+          "timestamp": 1754291322,
+          "datetime": "2025/08/04 15:08:42",
+          "price_usd": 114449.12,
+          "price_cny": 822889.15
+        },
+        {
+          "timestamp": 1754294962,
+          "datetime": "2025/08/04 16:09:22",
+          "price_usd": 114690.85,
+          "price_cny": 824627.18
+        },
+        {
+          "timestamp": 1754298257,
+          "datetime": "2025/08/04 17:04:17",
+          "price_usd": 114543.96,
+          "price_cny": 823571.07
+        },
+        {
+          "timestamp": 1754301620,
+          "datetime": "2025/08/04 18:00:20",
+          "price_usd": 114442.55,
+          "price_cny": 822841.93
+        },
+        {
+          "timestamp": 1754305725,
+          "datetime": "2025/08/04 19:08:45",
+          "price_usd": 114292.16,
+          "price_cny": 821760.61
+        },
+        {
+          "timestamp": 1754309338,
+          "datetime": "2025/08/04 20:08:58",
+          "price_usd": 114454.12,
+          "price_cny": 822925.11
+        },
+        {
+          "timestamp": 1754312978,
+          "datetime": "2025/08/04 21:09:38",
+          "price_usd": 114408.47,
+          "price_cny": 822596.93
+        },
+        {
+          "timestamp": 1754316290,
+          "datetime": "2025/08/04 22:04:50",
+          "price_usd": 114795.99,
+          "price_cny": 825383.15
+        },
+        {
+          "timestamp": 1754319842,
+          "datetime": "2025/08/04 23:04:02",
+          "price_usd": 114761.91,
+          "price_cny": 825138.16
+        },
+        {
+          "timestamp": 1754323496,
+          "datetime": "2025/08/05 00:04:56",
+          "price_usd": 114831.31,
+          "price_cny": 825637.15
+        },
+        {
+          "timestamp": 1754327391,
+          "datetime": "2025/08/05 01:09:51",
+          "price_usd": 115347.84,
+          "price_cny": 829350.99
+        },
+        {
+          "timestamp": 1754330947,
+          "datetime": "2025/08/05 02:09:07",
+          "price_usd": 115196.63,
+          "price_cny": 828263.77
+        },
+        {
+          "timestamp": 1754334652,
+          "datetime": "2025/08/05 03:10:52",
+          "price_usd": 114928.08,
+          "price_cny": 826332.86
+        },
+        {
+          "timestamp": 1754337690,
+          "datetime": "2025/08/05 04:01:30",
+          "price_usd": 114765.84,
+          "price_cny": 825166.41
+        },
+        {
+          "timestamp": 1754341430,
+          "datetime": "2025/08/05 05:03:50",
+          "price_usd": 114874.12,
+          "price_cny": 825944.91
+        },
+        {
+          "timestamp": 1754345382,
+          "datetime": "2025/08/05 06:09:42",
+          "price_usd": 115143.71,
+          "price_cny": 827883.31
+        },
+        {
+          "timestamp": 1754348647,
+          "datetime": "2025/08/05 07:04:07",
+          "price_usd": 115291.22,
+          "price_cny": 828943.84
+        },
+        {
+          "timestamp": 1754352589,
+          "datetime": "2025/08/05 08:09:49",
+          "price_usd": 115030.81,
+          "price_cny": 827071.52
+        },
+        {
+          "timestamp": 1754355839,
+          "datetime": "2025/08/05 09:03:59",
+          "price_usd": 114871.18,
+          "price_cny": 825923.82
+        },
+        {
+          "timestamp": 1754359465,
+          "datetime": "2025/08/05 10:04:25",
+          "price_usd": 114735.4,
+          "price_cny": 824947.52
+        },
+        {
+          "timestamp": 1754363320,
+          "datetime": "2025/08/05 11:08:40",
+          "price_usd": 114717.48,
+          "price_cny": 824818.7
+        },
+        {
+          "timestamp": 1754366685,
+          "datetime": "2025/08/05 12:04:45",
+          "price_usd": 114256.26,
+          "price_cny": 821502.5
+        },
+        {
+          "timestamp": 1754370520,
+          "datetime": "2025/08/05 13:08:40",
+          "price_usd": 114366.73,
+          "price_cny": 822296.79
+        },
+        {
+          "timestamp": 1754373934,
+          "datetime": "2025/08/05 14:05:34",
+          "price_usd": 114372.1,
+          "price_cny": 822335.36
+        },
+        {
+          "timestamp": 1754377444,
+          "datetime": "2025/08/05 15:04:04",
+          "price_usd": 114149.64,
+          "price_cny": 820735.91
+        },
+        {
+          "timestamp": 1754381095,
+          "datetime": "2025/08/05 16:04:55",
+          "price_usd": 113952.08,
+          "price_cny": 819315.42
+        },
+        {
+          "timestamp": 1754384952,
+          "datetime": "2025/08/05 17:09:12",
+          "price_usd": 114292.62,
+          "price_cny": 821763.95
+        },
+        {
+          "timestamp": 1754388234,
+          "datetime": "2025/08/05 18:03:54",
+          "price_usd": 114683.08,
+          "price_cny": 824571.35
+        },
+        {
+          "timestamp": 1754392182,
+          "datetime": "2025/08/05 19:09:42",
+          "price_usd": 114783.83,
+          "price_cny": 825295.74
+        },
+        {
+          "timestamp": 1754395743,
+          "datetime": "2025/08/05 20:09:03",
+          "price_usd": 114789.32,
+          "price_cny": 825335.2
+        },
+        {
+          "timestamp": 1754398844,
+          "datetime": "2025/08/05 21:00:44",
+          "price_usd": 113993.95,
+          "price_cny": 819616.51
+        },
+        {
+          "timestamp": 1754402625,
+          "datetime": "2025/08/05 22:03:45",
+          "price_usd": 114353.48,
+          "price_cny": 822201.54
+        },
+        {
+          "timestamp": 1754406251,
+          "datetime": "2025/08/05 23:04:11",
+          "price_usd": 112866.55,
+          "price_cny": 811510.52
+        },
+        {
+          "timestamp": 1754410171,
+          "datetime": "2025/08/06 00:09:31",
+          "price_usd": 112919.76,
+          "price_cny": 811893.09
+        },
+        {
+          "timestamp": 1754413773,
+          "datetime": "2025/08/06 01:09:33",
+          "price_usd": 113148.66,
+          "price_cny": 813538.84
+        },
+        {
+          "timestamp": 1754417374,
+          "datetime": "2025/08/06 02:09:34",
+          "price_usd": 113553.51,
+          "price_cny": 816449.73
+        },
+        {
+          "timestamp": 1754420448,
+          "datetime": "2025/08/06 03:00:48",
+          "price_usd": 113385.8,
+          "price_cny": 815243.9
+        },
+        {
+          "timestamp": 1754424067,
+          "datetime": "2025/08/06 04:01:07",
+          "price_usd": 113543.53,
+          "price_cny": 816377.97
+        },
+        {
+          "timestamp": 1754428142,
+          "datetime": "2025/08/06 05:09:02",
+          "price_usd": 113596.54,
+          "price_cny": 816759.12
+        },
+        {
+          "timestamp": 1754431797,
+          "datetime": "2025/08/06 06:09:57",
+          "price_usd": 113436.08,
+          "price_cny": 815605.43
+        },
+        {
+          "timestamp": 1754435305,
+          "datetime": "2025/08/06 07:08:25",
+          "price_usd": 113954.92,
+          "price_cny": 819335.89
+        },
+        {
+          "timestamp": 1754438950,
+          "datetime": "2025/08/06 08:09:10",
+          "price_usd": 114097.76,
+          "price_cny": 820362.93
+        },
+        {
+          "timestamp": 1754442551,
+          "datetime": "2025/08/06 09:09:11",
+          "price_usd": 113820.1,
+          "price_cny": 818366.49
+        },
+        {
+          "timestamp": 1754446088,
+          "datetime": "2025/08/06 10:08:08",
+          "price_usd": 113813.93,
+          "price_cny": 818322.14
+        },
+        {
+          "timestamp": 1754449726,
+          "datetime": "2025/08/06 11:08:46",
+          "price_usd": 113604.5,
+          "price_cny": 816816.37
+        },
+        {
+          "timestamp": 1754453370,
+          "datetime": "2025/08/06 12:09:30",
+          "price_usd": 113515.53,
+          "price_cny": 816176.64
+        },
+        {
+          "timestamp": 1754456978,
+          "datetime": "2025/08/06 13:09:38",
+          "price_usd": 113469.77,
+          "price_cny": 815847.62
+        },
+        {
+          "timestamp": 1754460036,
+          "datetime": "2025/08/06 14:00:36",
+          "price_usd": 114133.76,
+          "price_cny": 820621.74
+        },
+        {
+          "timestamp": 1754464169,
+          "datetime": "2025/08/06 15:09:29",
+          "price_usd": 114083.75,
+          "price_cny": 820262.19
+        },
+        {
+          "timestamp": 1754467756,
+          "datetime": "2025/08/06 16:09:16",
+          "price_usd": 114200.39,
+          "price_cny": 821100.82
+        },
+        {
+          "timestamp": 1754470840,
+          "datetime": "2025/08/06 17:00:40",
+          "price_usd": 113881.67,
+          "price_cny": 818809.24
+        },
+        {
+          "timestamp": 1754474692,
+          "datetime": "2025/08/06 18:04:52",
+          "price_usd": 114123.59,
+          "price_cny": 820548.59
+        },
+        {
+          "timestamp": 1754478159,
+          "datetime": "2025/08/06 19:02:39",
+          "price_usd": 114036.84,
+          "price_cny": 819924.86
+        },
+        {
+          "timestamp": 1754482150,
+          "datetime": "2025/08/06 20:09:10",
+          "price_usd": 114197.2,
+          "price_cny": 821077.88
+        },
+        {
+          "timestamp": 1754485451,
+          "datetime": "2025/08/06 21:04:11",
+          "price_usd": 113924.33,
+          "price_cny": 819115.93
+        },
+        {
+          "timestamp": 1754489286,
+          "datetime": "2025/08/06 22:08:06",
+          "price_usd": 114359.68,
+          "price_cny": 822246.08
+        },
+        {
+          "timestamp": 1754493021,
+          "datetime": "2025/08/06 23:10:21",
+          "price_usd": 114949.54,
+          "price_cny": 826487.16
+        },
+        {
+          "timestamp": 1754496574,
+          "datetime": "2025/08/07 00:09:34",
+          "price_usd": 115436.22,
+          "price_cny": 829986.43
+        },
+        {
+          "timestamp": 1754500147,
+          "datetime": "2025/08/07 01:09:07",
+          "price_usd": 115134.52,
+          "price_cny": 827817.2
+        },
+        {
+          "timestamp": 1754503536,
+          "datetime": "2025/08/07 02:05:36",
+          "price_usd": 115562.5,
+          "price_cny": 830894.41
+        },
+        {
+          "timestamp": 1754507454,
+          "datetime": "2025/08/07 03:10:54",
+          "price_usd": 115487.57,
+          "price_cny": 830355.64
+        },
+        {
+          "timestamp": 1754510959,
+          "datetime": "2025/08/07 04:09:19",
+          "price_usd": 115210.41,
+          "price_cny": 828362.84
+        },
+        {
+          "timestamp": 1754514586,
+          "datetime": "2025/08/07 05:09:46",
+          "price_usd": 115110.79,
+          "price_cny": 827646.59
+        },
+        {
+          "timestamp": 1754518184,
+          "datetime": "2025/08/07 06:09:44",
+          "price_usd": 115114.78,
+          "price_cny": 827675.29
+        },
+        {
+          "timestamp": 1754521688,
+          "datetime": "2025/08/07 07:08:08",
+          "price_usd": 115132.55,
+          "price_cny": 827803.01
+        },
+        {
+          "timestamp": 1754525361,
+          "datetime": "2025/08/07 08:09:21",
+          "price_usd": 115013.39,
+          "price_cny": 826946.28
+        },
+        {
+          "timestamp": 1754528956,
+          "datetime": "2025/08/07 09:09:16",
+          "price_usd": 114913.51,
+          "price_cny": 826228.12
+        },
+        {
+          "timestamp": 1754532587,
+          "datetime": "2025/08/07 10:09:47",
+          "price_usd": 114721.05,
+          "price_cny": 824844.35
+        }
+      ],
+      "summary": {
+        "start_price": {
+          "usd": 113556.14,
+          "cny": 816468.67
+        },
+        "end_price": {
+          "usd": 114721.05,
+          "cny": 824844.35
+        },
+        "high_price": {
+          "usd": 115562.5,
+          "cny": 830894.38
+        },
+        "low_price": {
+          "usd": 112296.38,
+          "cny": 807410.97
+        },
+        "change_percent": 1.03
+      }
+    },
+    "doge": {
+      "data": [
+        {
+          "timestamp": 1754132532,
+          "datetime": "2025/08/02 19:02:12",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754136546,
+          "datetime": "2025/08/02 20:09:06",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754139676,
+          "datetime": "2025/08/02 21:01:16",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754143725,
+          "datetime": "2025/08/02 22:08:45",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754147084,
+          "datetime": "2025/08/02 23:04:44",
+          "price_usd": 0.2,
+          "price_cny": 1.4
+        },
+        {
+          "timestamp": 1754150668,
+          "datetime": "2025/08/03 00:04:28",
+          "price_usd": 0.19,
+          "price_cny": 1.4
+        },
+        {
+          "timestamp": 1754154272,
+          "datetime": "2025/08/03 01:04:32",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754158132,
+          "datetime": "2025/08/03 02:08:52",
+          "price_usd": 0.19,
+          "price_cny": 1.38
+        },
+        {
+          "timestamp": 1754161744,
+          "datetime": "2025/08/03 03:09:04",
+          "price_usd": 0.19,
+          "price_cny": 1.37
+        },
+        {
+          "timestamp": 1754165062,
+          "datetime": "2025/08/03 04:04:22",
+          "price_usd": 0.19,
+          "price_cny": 1.39
+        },
+        {
+          "timestamp": 1754168954,
+          "datetime": "2025/08/03 05:09:14",
+          "price_usd": 0.19,
+          "price_cny": 1.4
+        },
+        {
+          "timestamp": 1754172524,
+          "datetime": "2025/08/03 06:08:44",
+          "price_usd": 0.19,
+          "price_cny": 1.39
+        },
+        {
+          "timestamp": 1754176079,
+          "datetime": "2025/08/03 07:07:59",
+          "price_usd": 0.19,
+          "price_cny": 1.39
+        },
+        {
+          "timestamp": 1754179767,
+          "datetime": "2025/08/03 08:09:27",
+          "price_usd": 0.19,
+          "price_cny": 1.38
+        },
+        {
+          "timestamp": 1754183174,
+          "datetime": "2025/08/03 09:06:14",
+          "price_usd": 0.19,
+          "price_cny": 1.39
+        },
+        {
+          "timestamp": 1754186602,
+          "datetime": "2025/08/03 10:03:22",
+          "price_usd": 0.19,
+          "price_cny": 1.4
+        },
+        {
+          "timestamp": 1754190299,
+          "datetime": "2025/08/03 11:04:59",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754193863,
+          "datetime": "2025/08/03 12:04:23",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754197643,
+          "datetime": "2025/08/03 13:07:23",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754201028,
+          "datetime": "2025/08/03 14:03:48",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754204680,
+          "datetime": "2025/08/03 15:04:40",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754208560,
+          "datetime": "2025/08/03 16:09:20",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754212162,
+          "datetime": "2025/08/03 17:09:22",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754215440,
+          "datetime": "2025/08/03 18:04:00",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754219320,
+          "datetime": "2025/08/03 19:08:40",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754222944,
+          "datetime": "2025/08/03 20:09:04",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754226462,
+          "datetime": "2025/08/03 21:07:42",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754229867,
+          "datetime": "2025/08/03 22:04:27",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754233440,
+          "datetime": "2025/08/03 23:04:00",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754237182,
+          "datetime": "2025/08/04 00:06:22",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754240985,
+          "datetime": "2025/08/04 01:09:45",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754244583,
+          "datetime": "2025/08/04 02:09:43",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754247631,
+          "datetime": "2025/08/04 03:00:31",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754251249,
+          "datetime": "2025/08/04 04:00:49",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754255323,
+          "datetime": "2025/08/04 05:08:43",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754258948,
+          "datetime": "2025/08/04 06:09:08",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754262297,
+          "datetime": "2025/08/04 07:04:57",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754266142,
+          "datetime": "2025/08/04 08:09:02",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754269423,
+          "datetime": "2025/08/04 09:03:43",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754273194,
+          "datetime": "2025/08/04 10:06:34",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754276638,
+          "datetime": "2025/08/04 11:03:58",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754280334,
+          "datetime": "2025/08/04 12:05:34",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754284132,
+          "datetime": "2025/08/04 13:08:52",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754287499,
+          "datetime": "2025/08/04 14:04:59",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754291268,
+          "datetime": "2025/08/04 15:07:48",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754294932,
+          "datetime": "2025/08/04 16:08:52",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754298244,
+          "datetime": "2025/08/04 17:04:04",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754301988,
+          "datetime": "2025/08/04 18:06:28",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754305727,
+          "datetime": "2025/08/04 19:08:47",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754309096,
+          "datetime": "2025/08/04 20:04:56",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754312976,
+          "datetime": "2025/08/04 21:09:36",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754316518,
+          "datetime": "2025/08/04 22:08:38",
+          "price_usd": 0.2,
+          "price_cny": 1.47
+        },
+        {
+          "timestamp": 1754319946,
+          "datetime": "2025/08/04 23:05:46",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754323496,
+          "datetime": "2025/08/05 00:04:56",
+          "price_usd": 0.2,
+          "price_cny": 1.47
+        },
+        {
+          "timestamp": 1754327356,
+          "datetime": "2025/08/05 01:09:16",
+          "price_usd": 0.21,
+          "price_cny": 1.49
+        },
+        {
+          "timestamp": 1754330753,
+          "datetime": "2025/08/05 02:05:53",
+          "price_usd": 0.21,
+          "price_cny": 1.49
+        },
+        {
+          "timestamp": 1754334597,
+          "datetime": "2025/08/05 03:09:57",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754337624,
+          "datetime": "2025/08/05 04:00:24",
+          "price_usd": 0.2,
+          "price_cny": 1.47
+        },
+        {
+          "timestamp": 1754341774,
+          "datetime": "2025/08/05 05:09:34",
+          "price_usd": 0.21,
+          "price_cny": 1.49
+        },
+        {
+          "timestamp": 1754345382,
+          "datetime": "2025/08/05 06:09:42",
+          "price_usd": 0.21,
+          "price_cny": 1.5
+        },
+        {
+          "timestamp": 1754348648,
+          "datetime": "2025/08/05 07:04:08",
+          "price_usd": 0.21,
+          "price_cny": 1.51
+        },
+        {
+          "timestamp": 1754352260,
+          "datetime": "2025/08/05 08:04:20",
+          "price_usd": 0.21,
+          "price_cny": 1.51
+        },
+        {
+          "timestamp": 1754356185,
+          "datetime": "2025/08/05 09:09:45",
+          "price_usd": 0.21,
+          "price_cny": 1.51
+        },
+        {
+          "timestamp": 1754359464,
+          "datetime": "2025/08/05 10:04:24",
+          "price_usd": 0.21,
+          "price_cny": 1.5
+        },
+        {
+          "timestamp": 1754363105,
+          "datetime": "2025/08/05 11:05:05",
+          "price_usd": 0.21,
+          "price_cny": 1.5
+        },
+        {
+          "timestamp": 1754366659,
+          "datetime": "2025/08/05 12:04:19",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754370233,
+          "datetime": "2025/08/05 13:03:53",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754373940,
+          "datetime": "2025/08/05 14:05:40",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754377446,
+          "datetime": "2025/08/05 15:04:06",
+          "price_usd": 0.21,
+          "price_cny": 1.47
+        },
+        {
+          "timestamp": 1754381072,
+          "datetime": "2025/08/05 16:04:32",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754384698,
+          "datetime": "2025/08/05 17:04:58",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754388298,
+          "datetime": "2025/08/05 18:04:58",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754392114,
+          "datetime": "2025/08/05 19:08:34",
+          "price_usd": 0.21,
+          "price_cny": 1.49
+        },
+        {
+          "timestamp": 1754395718,
+          "datetime": "2025/08/05 20:08:38",
+          "price_usd": 0.21,
+          "price_cny": 1.49
+        },
+        {
+          "timestamp": 1754399259,
+          "datetime": "2025/08/05 21:07:39",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754402433,
+          "datetime": "2025/08/05 22:00:33",
+          "price_usd": 0.2,
+          "price_cny": 1.47
+        },
+        {
+          "timestamp": 1754406586,
+          "datetime": "2025/08/05 23:09:46",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754410170,
+          "datetime": "2025/08/06 00:09:30",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754413754,
+          "datetime": "2025/08/06 01:09:14",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754417395,
+          "datetime": "2025/08/06 02:09:55",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754420612,
+          "datetime": "2025/08/06 03:03:32",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754424402,
+          "datetime": "2025/08/06 04:06:42",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754428141,
+          "datetime": "2025/08/06 05:09:01",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754431772,
+          "datetime": "2025/08/06 06:09:32",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754434832,
+          "datetime": "2025/08/06 07:00:32",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754438461,
+          "datetime": "2025/08/06 08:01:01",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754442550,
+          "datetime": "2025/08/06 09:09:10",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754446114,
+          "datetime": "2025/08/06 10:08:34",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754449591,
+          "datetime": "2025/08/06 11:06:31",
+          "price_usd": 0.2,
+          "price_cny": 1.42
+        },
+        {
+          "timestamp": 1754453097,
+          "datetime": "2025/08/06 12:04:57",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754456966,
+          "datetime": "2025/08/06 13:09:26",
+          "price_usd": 0.2,
+          "price_cny": 1.41
+        },
+        {
+          "timestamp": 1754460584,
+          "datetime": "2025/08/06 14:09:44",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754463867,
+          "datetime": "2025/08/06 15:04:27",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754467759,
+          "datetime": "2025/08/06 16:09:19",
+          "price_usd": 0.2,
+          "price_cny": 1.45
+        },
+        {
+          "timestamp": 1754471063,
+          "datetime": "2025/08/06 17:04:23",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754474635,
+          "datetime": "2025/08/06 18:03:55",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754478293,
+          "datetime": "2025/08/06 19:04:53",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754482048,
+          "datetime": "2025/08/06 20:07:28",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754485451,
+          "datetime": "2025/08/06 21:04:11",
+          "price_usd": 0.2,
+          "price_cny": 1.43
+        },
+        {
+          "timestamp": 1754489064,
+          "datetime": "2025/08/06 22:04:24",
+          "price_usd": 0.2,
+          "price_cny": 1.44
+        },
+        {
+          "timestamp": 1754493017,
+          "datetime": "2025/08/06 23:10:17",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754496590,
+          "datetime": "2025/08/07 00:09:50",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754500108,
+          "datetime": "2025/08/07 01:08:28",
+          "price_usd": 0.2,
+          "price_cny": 1.46
+        },
+        {
+          "timestamp": 1754503558,
+          "datetime": "2025/08/07 02:05:58",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754507425,
+          "datetime": "2025/08/07 03:10:25",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754510846,
+          "datetime": "2025/08/07 04:07:26",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754514558,
+          "datetime": "2025/08/07 05:09:18",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754518157,
+          "datetime": "2025/08/07 06:09:17",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754521730,
+          "datetime": "2025/08/07 07:08:50",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754525145,
+          "datetime": "2025/08/07 08:05:45",
+          "price_usd": 0.21,
+          "price_cny": 1.48
+        },
+        {
+          "timestamp": 1754528950,
+          "datetime": "2025/08/07 09:09:10",
+          "price_usd": 0.2,
+          "price_cny": 1.47
+        },
+        {
+          "timestamp": 1754532580,
+          "datetime": "2025/08/07 10:09:40",
+          "price_usd": 0.2,
+          "price_cny": 1.47
+        }
+      ],
+      "summary": {
+        "start_price": {
+          "usd": 0.2,
+          "cny": 1.43
+        },
+        "end_price": {
+          "usd": 0.2,
+          "cny": 1.47
+        },
+        "high_price": {
+          "usd": 0.21,
+          "cny": 1.51
+        },
+        "low_price": {
+          "usd": 0.19,
+          "cny": 1.37
+        },
+        "change_percent": 0
+      }
+    }
+  },
+  "last_updated": "2025/08/09 18:37:39"
+}
