@@ -6,12 +6,6 @@
     "eth": {
       "data": [
         {
-          "timestamp": 1733529600,
-          "datetime": "2024/12/07 08:00:00",
-          "price_usd": 4013.73,
-          "price_cny": 28417.18
-        },
-        {
           "timestamp": 1733616000,
           "datetime": "2024/12/08 08:00:00",
           "price_usd": 4000.99,
@@ -2196,20 +2190,26 @@
           "price_cny": 21400.41
         },
         {
-          "timestamp": 1764990265,
-          "datetime": "2025/12/06 11:04:25",
-          "price_usd": 3031.84,
-          "price_cny": 21465.41
+          "timestamp": 1765065600,
+          "datetime": "2025/12/07 08:00:00",
+          "price_usd": 3039.36,
+          "price_cny": 21518.66
+        },
+        {
+          "timestamp": 1765077663,
+          "datetime": "2025/12/07 11:21:03",
+          "price_usd": 3053.41,
+          "price_cny": 21618.11
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 4013.73,
-          "cny": 28417.18
+          "usd": 4000.99,
+          "cny": 28327.02
         },
         "end_price": {
-          "usd": 3031.84,
-          "cny": 21465.41
+          "usd": 3053.41,
+          "cny": 21618.11
         },
         "high_price": {
           "usd": 4829.23,
@@ -2219,17 +2219,11 @@
           "usd": 1471.36,
           "cny": 10417.23
         },
-        "change_percent": -24.46
+        "change_percent": -23.68
       }
     },
     "btc": {
       "data": [
-        {
-          "timestamp": 1733529600,
-          "datetime": "2024/12/07 08:00:00",
-          "price_usd": 99973.85,
-          "price_cny": 707814.87
-        },
         {
           "timestamp": 1733616000,
           "datetime": "2024/12/08 08:00:00",
@@ -4415,20 +4409,26 @@
           "price_cny": 632294.21
         },
         {
-          "timestamp": 1764990241,
-          "datetime": "2025/12/06 11:04:01",
-          "price_usd": 89491.63,
-          "price_cny": 633600.71
+          "timestamp": 1765065600,
+          "datetime": "2025/12/07 08:00:00",
+          "price_usd": 89244.76,
+          "price_cny": 631852.92
+        },
+        {
+          "timestamp": 1765077652,
+          "datetime": "2025/12/07 11:20:52",
+          "price_usd": 89611.58,
+          "price_cny": 634450.01
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 99973.85,
-          "cny": 707814.87
+          "usd": 99781.83,
+          "cny": 706455.36
         },
         "end_price": {
-          "usd": 89491.63,
-          "cny": 633600.71
+          "usd": 89611.58,
+          "cny": 634450.01
         },
         "high_price": {
           "usd": 124773.51,
@@ -4438,17 +4438,11 @@
           "usd": 76329.09,
           "cny": 540409.96
         },
-        "change_percent": -10.48
+        "change_percent": -10.19
       }
     },
     "doge": {
       "data": [
-        {
-          "timestamp": 1733529600,
-          "datetime": "2024/12/07 08:00:00",
-          "price_usd": 0.44,
-          "price_cny": 3.08
-        },
         {
           "timestamp": 1733616000,
           "datetime": "2024/12/08 08:00:00",
@@ -6634,16 +6628,22 @@
           "price_cny": 0.99
         },
         {
-          "timestamp": 1764990269,
-          "datetime": "2025/12/06 11:04:29",
+          "timestamp": 1765065600,
+          "datetime": "2025/12/07 08:00:00",
+          "price_usd": 0.14,
+          "price_cny": 0.99
+        },
+        {
+          "timestamp": 1765077684,
+          "datetime": "2025/12/07 11:21:24",
           "price_usd": 0.14,
           "price_cny": 0.99
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 0.44,
-          "cny": 3.08
+          "usd": 0.45,
+          "cny": 3.22
         },
         "end_price": {
           "usd": 0.14,
@@ -6657,9 +6657,9 @@
           "usd": 0.14,
           "cny": 0.99
         },
-        "change_percent": -68.18
+        "change_percent": -68.89
       }
     }
   },
-  "last_updated": "2025/12/06 11:04:30"
+  "last_updated": "2025/12/07 11:21:21"
 }
