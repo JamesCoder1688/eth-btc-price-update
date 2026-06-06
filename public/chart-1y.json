@@ -6,18 +6,6 @@
     "eth": {
       "data": [
         {
-          "timestamp": 1749081600,
-          "datetime": "2025/06/05 08:00:00",
-          "price_usd": 2610.34,
-          "price_cny": 17724.23
-        },
-        {
-          "timestamp": 1749168000,
-          "datetime": "2025/06/06 08:00:00",
-          "price_usd": 2421.6,
-          "price_cny": 16442.67
-        },
-        {
           "timestamp": 1749254400,
           "datetime": "2025/06/07 08:00:00",
           "price_usd": 2481.4,
@@ -2196,46 +2184,46 @@
           "price_cny": 12299.07
         },
         {
-          "timestamp": 1780554477,
-          "datetime": "2026/06/04 14:27:57",
-          "price_usd": 1796.15,
-          "price_cny": 12195.85
+          "timestamp": 1780617600,
+          "datetime": "2026/06/05 08:00:00",
+          "price_usd": 1769.18,
+          "price_cny": 12012.73
+        },
+        {
+          "timestamp": 1780704000,
+          "datetime": "2026/06/06 08:00:00",
+          "price_usd": 1580.62,
+          "price_cny": 10732.41
+        },
+        {
+          "timestamp": 1780724801,
+          "datetime": "2026/06/06 13:46:41",
+          "price_usd": 1557.93,
+          "price_cny": 10578.36
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 2610.34,
-          "cny": 17724.23
+          "usd": 2481.4,
+          "cny": 16848.73
         },
         "end_price": {
-          "usd": 1796.15,
-          "cny": 12195.85
+          "usd": 1557.93,
+          "cny": 10578.36
         },
         "high_price": {
           "usd": 4829.23,
           "cny": 32790.47
         },
         "low_price": {
-          "usd": 1796.15,
-          "cny": 12195.86
+          "usd": 1557.93,
+          "cny": 10578.34
         },
-        "change_percent": -31.19
+        "change_percent": -37.22
       }
     },
     "btc": {
       "data": [
-        {
-          "timestamp": 1749081600,
-          "datetime": "2025/06/05 08:00:00",
-          "price_usd": 104812.92,
-          "price_cny": 711679.71
-        },
-        {
-          "timestamp": 1749168000,
-          "datetime": "2025/06/06 08:00:00",
-          "price_usd": 101650.74,
-          "price_cny": 690208.52
-        },
         {
           "timestamp": 1749254400,
           "datetime": "2025/06/07 08:00:00",
@@ -4415,46 +4403,46 @@
           "price_cny": 434708.63
         },
         {
-          "timestamp": 1780554483,
-          "datetime": "2026/06/04 14:28:03",
-          "price_usd": 64232.23,
-          "price_cny": 436136.82
+          "timestamp": 1780617600,
+          "datetime": "2026/06/05 08:00:00",
+          "price_usd": 63796.25,
+          "price_cny": 433176.57
+        },
+        {
+          "timestamp": 1780704000,
+          "datetime": "2026/06/06 08:00:00",
+          "price_usd": 60921.79,
+          "price_cny": 413658.98
+        },
+        {
+          "timestamp": 1780724787,
+          "datetime": "2026/06/06 13:46:27",
+          "price_usd": 60773.32,
+          "price_cny": 412650.85
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 104812.92,
-          "cny": 711679.71
+          "usd": 104409.75,
+          "cny": 708942.2
         },
         "end_price": {
-          "usd": 64232.23,
-          "cny": 436136.82
+          "usd": 60773.32,
+          "cny": 412650.85
         },
         "high_price": {
           "usd": 124773.51,
           "cny": 847212.13
         },
         "low_price": {
-          "usd": 62853.69,
-          "cny": 426776.56
+          "usd": 60773.32,
+          "cny": 412650.84
         },
-        "change_percent": -38.72
+        "change_percent": -41.79
       }
     },
     "doge": {
       "data": [
-        {
-          "timestamp": 1749081600,
-          "datetime": "2025/06/05 08:00:00",
-          "price_usd": 0.19,
-          "price_cny": 1.28
-        },
-        {
-          "timestamp": 1749168000,
-          "datetime": "2025/06/06 08:00:00",
-          "price_usd": 0.17,
-          "price_cny": 1.17
-        },
         {
           "timestamp": 1749254400,
           "datetime": "2025/06/07 08:00:00",
@@ -6634,32 +6622,44 @@
           "price_cny": 0.62
         },
         {
-          "timestamp": 1780554484,
-          "datetime": "2026/06/04 14:28:04",
+          "timestamp": 1780617600,
+          "datetime": "2026/06/05 08:00:00",
           "price_usd": 0.09,
-          "price_cny": 0.61
+          "price_cny": 0.6
+        },
+        {
+          "timestamp": 1780704000,
+          "datetime": "2026/06/06 08:00:00",
+          "price_usd": 0.08,
+          "price_cny": 0.55
+        },
+        {
+          "timestamp": 1780724785,
+          "datetime": "2026/06/06 13:46:25",
+          "price_usd": 0.08,
+          "price_cny": 0.54
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 0.19,
-          "cny": 1.28
+          "usd": 0.18,
+          "cny": 1.22
         },
         "end_price": {
-          "usd": 0.09,
-          "cny": 0.61
+          "usd": 0.08,
+          "cny": 0.54
         },
         "high_price": {
           "usd": 0.29,
           "cny": 1.97
         },
         "low_price": {
-          "usd": 0.09,
-          "cny": 0.61
+          "usd": 0.08,
+          "cny": 0.54
         },
-        "change_percent": -52.63
+        "change_percent": -55.56
       }
     }
   },
-  "last_updated": "2026/06/04 14:28:23"
+  "last_updated": "2026/06/06 13:46:42"
 }
