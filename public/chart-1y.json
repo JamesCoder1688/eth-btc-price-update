@@ -6,12 +6,6 @@
     "eth": {
       "data": [
         {
-          "timestamp": 1761696000,
-          "datetime": "2025/10/29 08:00:00",
-          "price_usd": 3978.81,
-          "price_cny": 26578.46
-        },
-        {
           "timestamp": 1761782400,
           "datetime": "2025/10/30 08:00:00",
           "price_usd": 3902.8,
@@ -2196,40 +2190,40 @@
           "price_cny": 15680.12
         },
         {
-          "timestamp": 1793173060,
-          "datetime": "2026/10/28 15:37:40",
-          "price_usd": 2350.43,
-          "price_cny": 15700.84
+          "timestamp": 1793232000,
+          "datetime": "2026/10/29 08:00:00",
+          "price_usd": 2357.47,
+          "price_cny": 15747.92
+        },
+        {
+          "timestamp": 1793259880,
+          "datetime": "2026/10/29 15:44:40",
+          "price_usd": 2306.25,
+          "price_cny": 15405.74
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 3978.81,
-          "cny": 26578.46
+          "usd": 3902.8,
+          "cny": 26070.72
         },
         "end_price": {
-          "usd": 2350.43,
-          "cny": 15700.84
+          "usd": 2306.25,
+          "cny": 15405.74
         },
         "high_price": {
-          "usd": 3978.81,
-          "cny": 26578.45
+          "usd": 3905.34,
+          "cny": 26087.67
         },
         "low_price": {
           "usd": 1566.01,
           "cny": 10460.95
         },
-        "change_percent": -40.93
+        "change_percent": -40.91
       }
     },
     "btc": {
       "data": [
-        {
-          "timestamp": 1761696000,
-          "datetime": "2025/10/29 08:00:00",
-          "price_usd": 112893.85,
-          "price_cny": 754130.93
-        },
         {
           "timestamp": 1761782400,
           "datetime": "2025/10/30 08:00:00",
@@ -4415,40 +4409,40 @@
           "price_cny": 539749.56
         },
         {
-          "timestamp": 1793173050,
-          "datetime": "2026/10/28 15:37:30",
-          "price_usd": 80836.89,
-          "price_cny": 539990.44
+          "timestamp": 1793232000,
+          "datetime": "2026/10/29 08:00:00",
+          "price_usd": 81274.37,
+          "price_cny": 542912.82
+        },
+        {
+          "timestamp": 1793259880,
+          "datetime": "2026/10/29 15:44:40",
+          "price_usd": 79791.95,
+          "price_cny": 533010.2
         }
       ],
       "summary": {
         "start_price": {
-          "usd": 112893.85,
-          "cny": 754130.93
+          "usd": 110026.09,
+          "cny": 734974.27
         },
         "end_price": {
-          "usd": 80836.89,
-          "cny": 539990.44
+          "usd": 79791.95,
+          "cny": 533010.2
         },
         "high_price": {
-          "usd": 112893.85,
-          "cny": 754130.92
+          "usd": 110499.52,
+          "cny": 738136.79
         },
         "low_price": {
           "usd": 58566.09,
           "cny": 391221.48
         },
-        "change_percent": -28.4
+        "change_percent": -27.48
       }
     },
     "doge": {
       "data": [
-        {
-          "timestamp": 1761696000,
-          "datetime": "2025/10/29 08:00:00",
-          "price_usd": 0.19,
-          "price_cny": 1.29
-        },
         {
           "timestamp": 1761782400,
           "datetime": "2025/10/30 08:00:00",
@@ -6634,10 +6628,16 @@
           "price_cny": 0.53
         },
         {
-          "timestamp": 1793173080,
-          "datetime": "2026/10/28 15:38:00",
+          "timestamp": 1793232000,
+          "datetime": "2026/10/29 08:00:00",
           "price_usd": 0.08,
           "price_cny": 0.53
+        },
+        {
+          "timestamp": 1793259860,
+          "datetime": "2026/10/29 15:44:20",
+          "price_usd": 0.08,
+          "price_cny": 0.52
         }
       ],
       "summary": {
@@ -6647,7 +6647,7 @@
         },
         "end_price": {
           "usd": 0.08,
-          "cny": 0.53
+          "cny": 0.52
         },
         "high_price": {
           "usd": 0.19,
@@ -6661,5 +6661,5 @@
       }
     }
   },
-  "last_updated": "2026/10/28 15:39:20"
+  "last_updated": "2026/10/29 15:46:12"
 }
